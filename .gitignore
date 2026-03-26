@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# SQLite database (back this up separately — see README)
+maldives.db
+maldives.db-shm
+maldives.db-wal
+
+# Environment variables (never commit .env)
+.env
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp

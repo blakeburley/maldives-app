@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maldives Honeymoon Resort Comparison</title>
+  <style>
+    /* ── Reset & base ────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f0f4f8;
+      --card: #ffffff;
+      --border: #dde3ec;
+      --accent: #1a6bb5;
+      --accent-light: #e8f1fb;
+      --gold: #c9a84c;
+      --gold-light: #fdf8ec;
+      --green: #1d8348;
+      --green-bg: #eafaf1;
+      --red: #c0392b;
+      --red-bg: #fdf0ee;
+      --text: #1c2733;
+      --muted: #5a6a7a;
+      --shadow: 0 2px 12px rgba(0,0,0,.08);
+      --radius: 12px;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+
+    /* ── Header ──────────────────────────────────────────────────────────── */
+    header {
+      background: linear-gradient(135deg, #0d3b6e 0%, #1a6bb5 60%, #2196f3 100%);
+      color: #fff;
+      padding: 28px 32px 24px;
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    header .title-block { flex: 1; min-width: 260px; }
+    header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -.3px; }
+    header .subtitle { opacity: .82; font-size: .92rem; margin-top: 4px; }
+    header .points-strip {
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .pts-badge {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: .85rem;
+    }
+    .pts-badge strong { display: block; font-size: 1.05rem; }
+
+    /* ── Combos bar ───────────────────────────────────────────────────────── */
+    .combos-bar {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .combos-bar label { font-size: .82rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
+    .combo-btn {
+      background: var(--accent-light);
+      border: 1px solid #b3cfeb;
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .combo-btn:hover { background: var(--accent); color: #fff; }
+
+    /* ── Main layout ─────────────────────────────────────────────────────── */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1280px;
+      margin: 24px auto 0;
+      padding: 0 20px;
+    }
+    @media (max-width: 860px) {
+      .main-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Resort card ─────────────────────────────────────────────────────── */
+    .resort-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .card-header {
+      background: linear-gradient(135deg, #0d3b6e, #1565c0);
+      color: #fff;
+      padding: 16px 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .card-num {
+      background: rgba(255,255,255,.2);
+      border-radius: 50%;
+      width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem; flex-shrink: 0;
+    }
+    .card-title { font-weight: 700; font-size: 1rem; flex: 1; }
+    .card-body { padding: 18px 20px; }
+
+    /* ── Form controls ───────────────────────────────────────────────────── */
+    .form-row { margin-bottom: 14px; }
+    .form-row label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      margin-bottom: 5px;
+    }
+    select, input[type="number"] {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: .9rem;
+      color: var(--text);
+      background: #fff;
+      transition: border-color .15s;
+      appearance: auto;
+    }
+    select:focus, input[type="number"]:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(26,107,181,.12);
+    }
+
+    /* ── Nights row (inline) ─────────────────────────────────────────────── */
+    .nights-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nights-row input { width: 80px; flex-shrink: 0; }
+    .nights-hint { font-size: .8rem; color: var(--muted); }
+
+    /* ── Summary block ───────────────────────────────────────────────────── */
+    .summary-block {
+      background: var(--accent-light);
+      border: 1px solid #b3cfeb;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 18px;
+    }
+    .summary-block h3 {
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: .88rem;
+      padding: 3px 0;
+    }
+    .summary-row .label { color: var(--muted); }
+    .summary-row .value { font-weight: 600; }
+    .summary-row .value.points { color: #7c3aed; }
+    .summary-row .value.cash { color: #15803d; }
+    .summary-divider { border: none; border-top: 1px solid #b3cfeb; margin: 8px 0; }
+
+    /* ── Override section ────────────────────────────────────────────────── */
+    .overrides {
+      margin-top: 14px;
+      background: var(--gold-light);
+      border: 1px solid #e0c97a;
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+    .overrides-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+    .overrides-header h3 {
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--gold);
+    }
+    .overrides-header .toggle-icon { color: var(--gold); font-size: .9rem; }
+    .overrides-body { margin-top: 12px; }
+    .overrides-body.hidden { display: none; }
+    .overrides-body .form-row { margin-bottom: 10px; }
+    .overrides-body label {
+      font-size: .75rem;
+      color: #8a6d1a;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+    }
+    .overrides-body input {
+      background: #fffdf2;
+      border-color: #e0c97a;
+    }
+    .reset-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1.5px solid #e0c97a;
+      color: #8a6d1a;
+      border-radius: 7px;
+      padding: 6px 12px;
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 6px;
+      transition: background .15s;
+    }
+    .reset-btn:hover { background: #fdf1c0; }
+
+    /* ── Notes section ───────────────────────────────────────────────────── */
+    .notes-section {
+      margin-top: 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .notes-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f7f9fc;
+      padding: 10px 14px;
+      cursor: pointer;
+      user-select: none;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+    .notes-body { padding: 12px 14px; background: #fff; }
+    .notes-body.hidden { display: none; }
+    .notes-body ul { padding-left: 16px; }
+    .notes-body li { font-size: .83rem; color: var(--muted); line-height: 1.6; margin-bottom: 3px; }
+    .honeymoon-tag {
+      display: inline-block;
+      background: #fde8f5;
+      color: #a02070;
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: .73rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .honeymoon-list { padding-left: 16px; margin-bottom: 10px; }
+    .honeymoon-list li { font-size: .83rem; color: #a02070; line-height: 1.6; }
+
+    /* ── Bottom totals panel ─────────────────────────────────────────────── */
+    .totals-panel {
+      max-width: 1280px;
+      margin: 20px auto 0;
+      padding: 0 20px;
+    }
+    .totals-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 22px 28px;
+    }
+    .totals-card h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 18px;
+    }
+    .totals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .total-stat {
+      background: #f7f9fc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .total-stat .stat-label { font-size: .75rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 4px; }
+    .total-stat .stat-val { font-size: 1.45rem; font-weight: 700; }
+    .total-stat .stat-sub { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+    .stat-val.cash { color: #15803d; }
+    .stat-val.points { color: #7c3aed; }
+
+    /* ── Budget indicator ────────────────────────────────────────────────── */
+    .budget-bar-wrap {
+      margin-top: 4px;
+    }
+    .budget-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .budget-bar-header .budget-label { font-size: .85rem; font-weight: 600; color: var(--muted); }
+    .budget-bar-header .budget-diff {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .budget-bar-header .budget-diff.under { color: var(--green); }
+    .budget-bar-header .budget-diff.over { color: var(--red); }
+    .budget-status-badge {
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-left: 10px;
+    }
+    .budget-status-badge.under { background: var(--green-bg); color: var(--green); }
+    .budget-status-badge.over { background: var(--red-bg); color: var(--red); }
+    .bar-track {
+      height: 12px;
+      background: #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width .4s ease, background .3s;
+    }
+    .bar-fill.under { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+    .bar-fill.over { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+    .bar-markers {
+      display: flex;
+      justify-content: space-between;
+      font-size: .72rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── Points remaining ─────────────────────────────────────────────────── */
+    .points-remaining {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .pts-remain-card {
+      flex: 1;
+      min-width: 180px;
+      background: #f5f0ff;
+      border: 1px solid #d1b8f5;
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+    .pts-remain-card .pr-label { font-size: .73rem; font-weight: 600; color: #7c3aed; text-transform: uppercase; letter-spacing: .4px; }
+    .pts-remain-card .pr-val { font-size: 1.2rem; font-weight: 700; color: #5b21b6; margin-top: 2px; }
+    .pts-remain-card .pr-used { font-size: .78rem; color: #9061d0; }
+
+    /* ── Booking method badge ────────────────────────────────────────────── */
+    .method-badge {
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+    .method-badge.points { background: #f5f0ff; color: #7c3aed; border: 1px solid #d1b8f5; }
+    .method-badge.cash { background: var(--green-bg); color: var(--green); border: 1px solid #a7d9bc; }
+
+    /* ── Effective rate ribbon ──────────────────────────────────────────── */
+    .eff-rate-ribbon {
+      background: #e8f1fb;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 8px 12px;
+      margin-top: 10px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .eff-rate-ribbon .eff-label { font-size: .75rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: .3px; }
+    .eff-rate-ribbon .eff-val { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+
+    /* ── Misc ────────────────────────────────────────────────────────────── */
+    .warn-tag {
+      display: inline-block;
+      background: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffc107;
+      border-radius: 5px;
+      padding: 2px 8px;
+      font-size: .72rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .info-row {
+      font-size: .8rem;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+    .section-sep { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="title-block">
+    <h1>🌴 Maldives Honeymoon Comparison</h1>
+    <div class="subtitle">June 9–18, 2026 · 9 nights · $10,000 target budget</div>
+  </div>
+  <div class="points-strip">
+    <div class="pts-badge">
+      <span>Chase UR (Blake)</span>
+      <strong id="hdr-chase">320,000 pts</strong>
+    </div>
+    <div class="pts-badge">
+      <span>Amex MR (Monica)</span>
+      <strong id="hdr-amex">300,000 pts</strong>
+    </div>
+  </div>
+</header>
+
+<!-- Suggested Combos -->
+<div class="combos-bar">
+  <label>Suggested Combos:</label>
+  <div id="combo-buttons"></div>
+</div>
+
+<!-- Resort cards -->
+<div class="main-grid">
+  <div id="resort-card-1" class="resort-card"></div>
+  <div id="resort-card-2" class="resort-card"></div>
+</div>
+
+<!-- Totals panel -->
+<div class="totals-panel">
+  <div class="totals-card">
+    <h2>Trip Summary</h2>
+    <div class="totals-grid">
+      <div class="total-stat">
+        <div class="stat-label">Total Cash Cost</div>
+        <div class="stat-val cash" id="total-cash">—</div>
+        <div class="stat-sub" id="total-cash-sub"></div>
+      </div>
+      <div class="total-stat">
+        <div class="stat-label">Chase Points Used</div>
+        <div class="stat-val points" id="total-chase-pts">—</div>
+        <div class="stat-sub" id="total-chase-sub"></div>
+      </div>
+      <div class="total-stat">
+        <div class="stat-label">Amex Points Used</div>
+        <div class="stat-val points" id="total-amex-pts">—</div>
+        <div class="stat-sub" id="total-amex-sub"></div>
+      </div>
+      <div class="total-stat">
+        <div class="stat-label">Total Nights</div>
+        <div class="stat-val" id="total-nights">—</div>
+        <div class="stat-sub">across both resorts</div>
+      </div>
+    </div>
+
+    <!-- Budget bar -->
+    <div class="budget-bar-wrap">
+      <div class="budget-bar-header">
+        <span class="budget-label">Budget vs $10,000 Target</span>
+        <span>
+          <span class="budget-diff" id="budget-diff">—</span>
+          <span class="budget-status-badge" id="budget-badge"></span>
+        </span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" id="budget-bar" style="width:0%"></div>
+      </div>
+      <div class="bar-markers">
+        <span>$0</span>
+        <span>$5,000</span>
+        <span>$10,000</span>
+        <span>$15,000+</span>
+      </div>
+    </div>
+
+    <!-- Points remaining -->
+    <div class="points-remaining">
+      <div class="pts-remain-card">
+        <div class="pr-label">Chase UR Remaining</div>
+        <div class="pr-val" id="chase-remaining">—</div>
+        <div class="pr-used" id="chase-used-label"></div>
+      </div>
+      <div class="pts-remain-card">
+        <div class="pr-label">Amex MR Remaining</div>
+        <div class="pr-val" id="amex-remaining">—</div>
+        <div class="pr-used" id="amex-used-label"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// DATA LOADING & SESSION PERSISTENCE
+//
+// Data flow:
+//   1. On load: fetch /api/data  (resort/pricing from SQLite)
+//   2. On load: fetch /api/session  (restore last saved slot selections)
+//   3. After every user change: POST /api/session/:slot  (save slot state)
+//
+// This means the app resumes exactly where you left it after a server restart
+// or browser refresh. Overrides (custom rates, transfer costs) are also saved.
+// ─────────────────────────────────────────────────────────────────────────────
+let DATA = null;
+
+// Per-card mutable override state (persisted to /api/session after each change)
+const overrides = {
+  1: {},
+  2: {}
+};
+
+// Current selections (persisted to /api/session after each change)
+const sel = {
+  1: { resortId: null, nights: null, villa: null, mealPlan: null },
+  2: { resortId: null, nights: null, villa: null, mealPlan: null }
+};
+
+// Debounce timer for saving overrides (avoids hammering the API on every keypress)
+const _saveTimers = {};
+
+async function loadData() {
+  try {
+    // Fetch resort/pricing data from SQLite via Express API
+    const resp = await fetch('/api/data');
+    if (!resp.ok) throw new Error(`Server returned ${resp.status}`);
+    DATA = await resp.json();
+    init();
+    // After rendering defaults, try to restore the last saved session
+    await restoreSession();
+  } catch(e) {
+    document.body.innerHTML = '<div style="padding:40px;color:red;font-size:1.1rem;">⚠️ Could not reach the server. Make sure <code>node server.js</code> is running.<br><br>' + e + '</div>';
+  }
+}
+
+// ── Session restore ───────────────────────────────────────────────────────────
+// Called once on startup. If the server has saved state for slot 1 and/or 2,
+// apply it so the user sees their last configuration instead of Combo 1 defaults.
+async function restoreSession() {
+  try {
+    const resp = await fetch('/api/session');
+    if (!resp.ok) return;
+    const session = await resp.json();
+
+    // Only restore if both slots were previously saved
+    const s1 = session[1];
+    const s2 = session[2];
+    if (!s1 || !s2) return;
+
+    // Validate that the saved resort IDs still exist in current data
+    const r1 = DATA.resorts.find(r => r.id === s1.resortId);
+    const r2 = DATA.resorts.find(r => r.id === s2.resortId);
+    if (!r1 || !r2) return; // Data changed since last save — keep defaults
+
+    // Apply saved state
+    overrides[1] = s1.overrides || {};
+    overrides[2] = s2.overrides || {};
+    sel[1] = { resortId: s1.resortId, nights: s1.nights, villa: s1.villa, mealPlan: s1.mealPlan };
+    sel[2] = { resortId: s2.resortId, nights: s2.nights, villa: s2.villa, mealPlan: s2.mealPlan };
+
+    renderCard(1);
+    renderCard(2);
+    updateTotals();
+  } catch(e) {
+    // Non-fatal — just keep the defaults
+    console.warn('Could not restore session:', e);
+  }
+}
+
+// ── Session save ──────────────────────────────────────────────────────────────
+// Saves one slot's current state to SQLite via the API.
+// Pass debounce=true when called from setOverride() to avoid rapid-fire saves.
+function saveSession(num, debounce = false) {
+  const doSave = () => {
+    const s = sel[num];
+    fetch(`/api/session/${num}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        resortId: s.resortId,
+        nights:   s.nights,
+        villa:    s.villa,
+        mealPlan: s.mealPlan,
+        overrides: overrides[num],
+      }),
+    }).catch(e => console.warn('Session save failed:', e));
+  };
+
+  if (debounce) {
+    clearTimeout(_saveTimers[num]);
+    _saveTimers[num] = setTimeout(doSave, 600); // wait 600ms after last keypress
+  } else {
+    doSave();
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────────────────────────────────────
+function init() {
+  buildComboButtons();
+  // Default: Combo 1
+  applyCombo(DATA.suggestedCombinations[0]);
+}
+
+function buildComboButtons() {
+  const container = document.getElementById('combo-buttons');
+  DATA.suggestedCombinations.forEach((combo, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'combo-btn';
+    btn.textContent = combo.label;
+    btn.title = combo.description;
+    btn.addEventListener('click', () => applyCombo(combo));
+    container.appendChild(btn);
+  });
+}
+
+function applyCombo(combo) {
+  // Reset overrides when applying a preset combo
+  overrides[1] = {};
+  overrides[2] = {};
+
+  sel[1] = { resortId: combo.resort1.id, nights: combo.resort1.nights, villa: combo.resort1.villa, mealPlan: combo.resort1.mealPlan };
+  sel[2] = { resortId: combo.resort2.id, nights: combo.resort2.nights, villa: combo.resort2.villa, mealPlan: combo.resort2.mealPlan };
+
+  renderCard(1);
+  renderCard(2);
+  updateTotals();
+
+  // Persist both slots so this combo is restored on next page load
+  saveSession(1);
+  saveSession(2);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// CARD RENDERING
+// ─────────────────────────────────────────────────────────────────────────────
+function renderCard(num) {
+  const container = document.getElementById(`resort-card-${num}`);
+  const s = sel[num];
+  const resort = DATA.resorts.find(r => r.id === s.resortId);
+  const ov = overrides[num];
+
+  const isPoints = resort.bookingMethod === 'points';
+  const methodLabel = isPoints
+    ? `<span class="method-badge points">🔷 Points Redemption</span>`
+    : `<span class="method-badge cash">💵 Cash</span>`;
+
+  // ── Build resort selector options ──
+  const resortOpts = DATA.resorts.map(r =>
+    `<option value="${r.id}" ${r.id === s.resortId ? 'selected' : ''}>${r.name}</option>`
+  ).join('');
+
+  // ── Build villa options ──
+  const villaOpts = resort.villaTypes.map(v =>
+    `<option value="${v.id}" ${v.id === s.villa ? 'selected' : ''}>${v.name}</option>`
+  ).join('');
+
+  // ── Build meal plan options ──
+  const mealOpts = resort.mealPlans.map(m =>
+    `<option value="${m.id}" ${m.id === s.mealPlan ? 'selected' : ''}>${m.name}</option>`
+  ).join('');
+
+  // ── Compute cost ──
+  const cost = computeCost(num);
+
+  // ── Villa note ──
+  const currentVilla = resort.villaTypes.find(v => v.id === s.villa);
+  const currentMeal = resort.mealPlans.find(m => m.id === s.mealPlan);
+
+  // ── Build overrides fields ──
+  const overrideFields = buildOverrideFields(num, resort, ov);
+
+  // ── Honeymoon inclusions ──
+  const hpItems = resort.honeymooonInclusions || [];
+  const hpHTML = hpItems.length
+    ? `<span class="honeymoon-tag">🌸 Honeymoon Perks</span>
+       <ul class="honeymoon-list">${hpItems.map(i => `<li>${i}</li>`).join('')}</ul>`
+    : '';
+
+  // ── Notes list ──
+  const notesHTML = (resort.notes || []).map(n => `<li>${n}</li>`).join('');
+
+  // ── Warnings ──
+  let warnings = '';
+  if (resort.id === 'ritz-carlton' && s.nights === 3) {
+    warnings = `<div class="warn-tag">⚠️ Transfer waiver at 3 nights UNCONFIRMED — ask agent</div><br>`;
+  }
+  if (resort.id === 'westin' && s.mealPlan === 'breakfast-dinner') {
+    warnings += `<div class="warn-tag">⚠️ Breakfast+Dinner restaurant coverage TBD — email sent</div><br>`;
+  }
+  if (resort.id === 'vakkaru' && (s.mealPlan === 'half-board' || s.mealPlan === 'full-board')) {
+    warnings += `<div class="warn-tag">⚠️ HB dinner restaurant coverage TBD — email sent</div>`;
+  }
+
+  // ── Summary rows ──
+  const summaryRows = buildSummaryRows(num, cost, resort, s);
+
+  container.innerHTML = `
+    <div class="card-header">
+      <div class="card-num">${num}</div>
+      <div class="card-title" id="card-title-${num}">${resort.name}</div>
+      ${methodLabel}
+    </div>
+    <div class="card-body">
+
+      <div class="form-row">
+        <label>Resort</label>
+        <select id="resort-sel-${num}" onchange="onResortChange(${num}, this.value)">
+          ${resortOpts}
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>Nights</label>
+        <div class="nights-row">
+          <input type="number" id="nights-inp-${num}" min="1" max="14" value="${s.nights}"
+            onchange="onNightsChange(${num}, this.value)" />
+          <span class="nights-hint" id="nights-hint-${num}">${getNightsHint(resort, s.nights)}</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>Villa / Room Type</label>
+        <select id="villa-sel-${num}" onchange="onVillaChange(${num}, this.value)">
+          ${villaOpts}
+        </select>
+        ${currentVilla && currentVilla.note ? `<div class="info-row">ℹ️ ${currentVilla.note}</div>` : ''}
+      </div>
+
+      <div class="form-row">
+        <label>Meal Plan</label>
+        <select id="meal-sel-${num}" onchange="onMealChange(${num}, this.value)">
+          ${mealOpts}
+        </select>
+        ${currentMeal && currentMeal.note ? `<div class="info-row">ℹ️ ${currentMeal.note}</div>` : ''}
+      </div>
+
+      ${warnings}
+
+      <!-- Summary -->
+      <div class="summary-block">
+        <h3>Cost Breakdown</h3>
+        ${summaryRows}
+        <div class="eff-rate-ribbon">
+          <span class="eff-label">Effective Nightly Rate</span>
+          <span class="eff-val">${fmt(cost.effectiveNightly)}</span>
+        </div>
+      </div>
+
+      <!-- Overrides -->
+      <div class="overrides" id="ov-section-${num}">
+        <div class="overrides-header" onclick="toggleOverrides(${num})">
+          <h3>✏️ Edit / Override Numbers</h3>
+          <span class="toggle-icon" id="ov-toggle-${num}">▼</span>
+        </div>
+        <div class="overrides-body hidden" id="ov-body-${num}">
+          ${overrideFields}
+          <button class="reset-btn" onclick="resetOverrides(${num})">↺ Reset to Original Data</button>
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="notes-section">
+        <div class="notes-header" onclick="toggleNotes(${num})">
+          <span>📋 Notes & Inclusions</span>
+          <span id="notes-toggle-${num}">▼</span>
+        </div>
+        <div class="notes-body hidden" id="notes-body-${num}">
+          ${hpHTML}
+          ${resort.honeymooonNote ? `<div class="info-row" style="color:#a02070;margin-bottom:8px;">${resort.honeymooonNote}</div>` : ''}
+          ${resort.dineAroundDetails ? `
+            <strong style="font-size:.8rem;color:var(--muted);">Half Board Dining:</strong>
+            <ul style="margin-bottom:8px;">${resort.dineAroundDetails.map(d => `<li style="font-size:.83rem;color:var(--muted);line-height:1.6;">${d}</li>`).join('')}</ul>
+          ` : ''}
+          ${resort.amexNote ? `<div class="warn-tag" style="margin-bottom:6px;">💳 Amex Note</div><div class="info-row" style="margin-bottom:8px;">${resort.amexNote}</div>` : ''}
+          <ul>${notesHTML}</ul>
+          ${resort.transfer ? `
+            <hr class="section-sep">
+            <strong style="font-size:.8rem;color:var(--muted);">Transfer:</strong>
+            <ul><li style="font-size:.83rem;color:var(--muted);line-height:1.6;">${resort.transfer.description || ''}</li>
+            ${resort.transfer.details ? `<li style="font-size:.83rem;color:var(--muted);line-height:1.6;">${resort.transfer.details}</li>` : ''}
+            ${resort.transfer.lateArrivalNote ? `<li style="font-size:.83rem;color:var(--muted);line-height:1.6;">${resort.transfer.lateArrivalNote}</li>` : ''}
+            ${resort.transfer.splitStayNote ? `<li style="font-size:.83rem;color:var(--muted);line-height:1.6;">${resort.transfer.splitStayNote}</li>` : ''}
+            </ul>
+          ` : ''}
+        </div>
+      </div>
+
+    </div>
+  `;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// COST COMPUTATION
+// ─────────────────────────────────────────────────────────────────────────────
+function computeCost(num) {
+  const s = sel[num];
+  const resort = DATA.resorts.find(r => r.id === s.resortId);
+  const ov = overrides[num];
+  const nights = parseInt(ov.nights ?? s.nights) || s.nights;
+
+  let cashCost = 0;
+  let chasePoints = 0;
+  let amexPoints = 0;
+  let transferCost = 0;
+  let breakdown = [];
+
+  if (resort.id === 'park-hyatt') {
+    const ptsPerNight = parseInt(ov.pointsPerNight ?? resort.defaultPointsPerNight);
+    chasePoints = ptsPerNight * nights;
+
+    const villa = resort.villaTypes.find(v => v.id === s.villa);
+    const supplement = parseFloat(ov.villaSupplementPerNight ?? villa.supplementPerNight);
+    const taxRate = parseFloat(ov.taxRate ?? villa.taxRate);
+    const villaTotal = supplement > 0 ? supplement * (1 + taxRate) * nights : 0;
+
+    const meal = resort.mealPlans.find(m => m.id === s.mealPlan);
+    const mealCostPerNight = parseFloat(ov.mealCostPerNight ?? meal.costPerNightForTwo);
+    const mealTotal = mealCostPerNight * nights;
+
+    transferCost = parseFloat(ov.transferCost ?? resort.transfer.totalForTwo);
+
+    cashCost = villaTotal + mealTotal + transferCost;
+
+    breakdown = [
+      { label: `Points (${ptsPerNight.toLocaleString()} × ${nights} nts)`, value: null, points: chasePoints, pointsLabel: 'Chase' },
+      { label: `Villa supplement (${nights} nts)`, value: villaTotal },
+      { label: `Meal plan (${nights} nts)`, value: mealTotal },
+      { label: 'Transfer', value: transferCost }
+    ];
+
+  } else if (resort.id === 'ritz-carlton') {
+    const agentRate = parseFloat(ov.agentRate ?? resort.agentRate);
+    const taxRate = parseFloat(ov.taxRate ?? resort.taxRate);
+    const serviceCharge = parseFloat(ov.serviceCharge ?? resort.serviceCharge);
+
+    const nightOpt = resort.nightOptions.find(n => n.nights === nights) || resort.nightOptions[resort.nightOptions.length - 1];
+    const room = agentRate * nights;
+    const taxes = room * taxRate;
+    const svc = room * serviceCharge;
+
+    let transfer = 0;
+    let transferNote = '';
+    if (nights >= 4) {
+      transfer = 0;
+      transferNote = 'Transfer WAIVED (4+ nights)';
+    } else {
+      transfer = parseFloat(ov.transferCost ?? resort.transfer.costTotal);
+      transferNote = 'Transfer (waiver unconfirmed)';
+    }
+    if (ov.transferCost !== undefined) {
+      transfer = parseFloat(ov.transferCost);
+      transferNote = 'Transfer (override)';
+    }
+
+    cashCost = room + taxes + svc + transfer;
+
+    breakdown = [
+      { label: `Room ($${agentRate}/nt × ${nights} nts)`, value: room },
+      { label: `Taxes (${(taxRate*100).toFixed(1)}%)`, value: taxes },
+      { label: `Service charge (${(serviceCharge*100).toFixed(0)}%)`, value: svc },
+      { label: transferNote, value: transfer }
+    ];
+
+  } else if (resort.id === 'conrad') {
+    const nightOpt = resort.nightOptions.find(n => n.nights === nights);
+
+    if (nightOpt && ov.totalOverride === undefined) {
+      cashCost = parseFloat(ov.total ?? nightOpt.total);
+      breakdown = [
+        { label: `Room ($${resort.agentRate}/nt × ${nights} nts)`, value: nightOpt.room },
+        { label: 'Service charge (10%)', value: nightOpt.serviceCharge },
+        { label: 'TGST (17%)', value: nightOpt.tgst },
+        { label: `Green tax ($24/night × ${nights})`, value: nightOpt.greenTax },
+        { label: 'Seaplane RT (30% agent discount)', value: nightOpt.seaplane }
+      ];
+    } else {
+      // Compute manually
+      const agentRate = parseFloat(ov.agentRate ?? resort.agentRate);
+      const room = agentRate * nights;
+      const svc = room * 0.10;
+      const tgst = room * 0.17;
+      const green = 24 * nights;
+      const seaplane = parseFloat(ov.transferCost ?? resort.transfer.agentDiscountedTotal);
+      cashCost = room + svc + tgst + green + seaplane;
+      breakdown = [
+        { label: `Room ($${agentRate}/nt × ${nights} nts)`, value: room },
+        { label: 'Service charge (10%)', value: svc },
+        { label: 'TGST (17%)', value: tgst },
+        { label: `Green tax ($24/night × ${nights})`, value: green },
+        { label: 'Seaplane RT (30% agent discount)', value: seaplane }
+      ];
+    }
+
+  } else if (resort.id === 'westin') {
+    const nightOpt = resort.nightOptions.find(n => n.mealPlan === s.mealPlan && n.nights === nights);
+
+    if (nightOpt && ov.totalOverride === undefined) {
+      cashCost = parseFloat(ov.total ?? nightOpt.total);
+      breakdown = [
+        { label: `Room (${nights} nts)`, value: nightOpt.room },
+        { label: 'Taxes/fees', value: nightOpt.taxes },
+        { label: 'Service charge', value: nightOpt.serviceCharge },
+        { label: 'Transfer (speedboat)', value: nightOpt.transfer }
+      ];
+    } else {
+      const meal = resort.mealPlans.find(m => m.id === s.mealPlan);
+      const rate = parseFloat(ov.ratePerNight ?? meal.ratePerNight ?? 525.35);
+      const room = rate * nights;
+      const taxes = room * 0.232;
+      const svc = room * 0.10;
+      const transfer = parseFloat(ov.transferCost ?? resort.transfer.costTotal);
+      cashCost = room + taxes + svc + transfer;
+      breakdown = [
+        { label: `Room ($${rate}/nt × ${nights} nts)`, value: room },
+        { label: 'Taxes/fees (~23.2%)', value: taxes },
+        { label: 'Service charge (10%)', value: svc },
+        { label: 'Transfer (speedboat)', value: transfer }
+      ];
+    }
+
+  } else if (resort.id === 'vakkaru') {
+    const nightOpt = resort.nightOptions.find(n => n.mealPlan === s.mealPlan && n.nights === nights);
+
+    if (nightOpt && ov.totalOverride === undefined) {
+      cashCost = parseFloat(ov.total ?? nightOpt.total);
+      breakdown = [
+        { label: `All-in package ($${nightOpt.ratePerNight}/nt × ${nights} nts)`, value: nightOpt.ratePerNight * nights },
+        { label: 'Taxes & fees', value: cashCost - nightOpt.ratePerNight * nights }
+      ];
+    } else {
+      const meal = resort.mealPlans.find(m => m.id === s.mealPlan);
+      const rate = parseFloat(ov.ratePerNight ?? meal.ratePerNight ?? 900);
+      const room = rate * nights;
+      const taxes = room * 0.319;
+      cashCost = room + taxes;
+      breakdown = [
+        { label: `All-in ($${rate}/nt × ${nights} nts)`, value: room },
+        { label: 'Taxes & fees (~31.9%)', value: taxes }
+      ];
+    }
+  }
+
+  const effectiveNightly = cashCost / nights;
+
+  return { cashCost, chasePoints, amexPoints, transferCost, breakdown, effectiveNightly, nights };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SUMMARY ROWS HTML
+// ─────────────────────────────────────────────────────────────────────────────
+function buildSummaryRows(num, cost, resort, s) {
+  let rows = cost.breakdown.map(item => {
+    if (item.points !== undefined) {
+      return `<div class="summary-row">
+        <span class="label">${item.label}</span>
+        <span class="value points">${item.points.toLocaleString()} ${item.pointsLabel} pts</span>
+      </div>`;
+    }
+    return `<div class="summary-row">
+      <span class="label">${item.label}</span>
+      <span class="value">${item.value > 0 ? fmt(item.value) : '<span style="color:var(--green)">Included</span>'}</span>
+    </div>`;
+  }).join('');
+
+  rows += `<hr class="summary-divider">
+    <div class="summary-row">
+      <span class="label" style="font-weight:700;color:var(--text);">Total Cash</span>
+      <span class="value cash" style="font-size:1.1rem;">${fmt(cost.cashCost)}</span>
+    </div>`;
+
+  if (cost.chasePoints > 0) {
+    rows += `<div class="summary-row">
+      <span class="label" style="font-weight:700;color:var(--text);">Chase Points</span>
+      <span class="value points">${cost.chasePoints.toLocaleString()} pts</span>
+    </div>`;
+  }
+
+  return rows;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// OVERRIDE FIELDS
+// ─────────────────────────────────────────────────────────────────────────────
+function buildOverrideFields(num, resort, ov) {
+  const s = sel[num];
+  let fields = '';
+
+  if (resort.id === 'park-hyatt') {
+    const villa = resort.villaTypes.find(v => v.id === s.villa);
+    const meal = resort.mealPlans.find(m => m.id === s.mealPlan);
+    fields = `
+      <div class="form-row">
+        <label>Points Per Night</label>
+        <input type="number" value="${ov.pointsPerNight ?? resort.defaultPointsPerNight}"
+          onchange="setOverride(${num}, 'pointsPerNight', this.value)" />
+      </div>
+      <div class="form-row">
+        <label>Villa Supplement/Night (pre-tax $)</label>
+        <input type="number" value="${ov.villaSupplementPerNight ?? villa.supplementPerNight}"
+          onchange="setOverride(${num}, 'villaSupplementPerNight', this.value)" />
+      </div>
+      <div class="form-row">
+        <label>Meal Plan Cost/Night for 2 ($)</label>
+        <input type="number" value="${ov.mealCostPerNight ?? meal.costPerNightForTwo}"
+          onchange="setOverride(${num}, 'mealCostPerNight', this.value)" />
+      </div>
+      <div class="form-row">
+        <label>Transfer Cost ($)</label>
+        <input type="number" value="${ov.transferCost ?? resort.transfer.totalForTwo}"
+          onchange="setOverride(${num}, 'transferCost', this.value)" />
+      </div>`;
+  } else if (resort.id === 'ritz-carlton') {
+    fields = `
+      <div class="form-row">
+        <label>Agent Rate Per Night ($)</label>
+        <input type="number" value="${ov.agentRate ?? resort.agentRate}"
+          onchange="setOverride(${num}, 'agentRate', this.value)" />
+      </div>
+      <div class="form-row">
+        <label>Tax Rate (e.g. 0.202 = 20.2%)</label>
+        <input type="number" step="0.001" value="${ov.taxRate ?? resort.taxRate}"
+          onchange="setOverride(${num}, 'taxRate', this.value)" />
+      </div>
+      <div class="form-row">
+        <label>Transfer Cost ($, 0 if waived)</label>
+        <input type="number" value="${ov.transferCost ?? (s.nights >= 4 ? 0 : resort.transfer.costTotal)}"
+          onchange="setOverride(${num}, 'transferCost', this.value)" />
+      </div>`;
+  } else if (resort.id === 'conrad') {
+    fields = `
+      <div class="form-row">
+        <label>Agent Rate Per Night ($)</label>
+        <input type="number" value="${ov.agentRate ?? resort.agentRate}"
+          onchange="setOverride(${num}, 'agentRate', this.value)" />
+      </div>
+      <div class="form-row">
+        <label>Seaplane Transfer Cost ($)</label>
+        <input type="number" value="${ov.transferCost ?? resort.transfer.agentDiscountedTotal}"
+          onchange="setOverride(${num}, 'transferCost', this.value)" />
+      </div>`;
+  } else if (resort.id === 'westin') {
+    const meal = resort.mealPlans.find(m => m.id === s.mealPlan);
+    fields = `
+      <div class="form-row">
+        <label>Rate Per Night ($)</label>
+        <input type="number" step="0.01" value="${ov.ratePerNight ?? (meal.ratePerNight ?? 525.35)}"
+          onchange="setOverride(${num}, 'ratePerNight', this.value); setOverride(${num}, 'totalOverride', 'yes')" />
+      </div>
+      <div class="form-row">
+        <label>Transfer Cost ($)</label>
+        <input type="number" value="${ov.transferCost ?? resort.transfer.costTotal}"
+          onchange="setOverride(${num}, 'transferCost', this.value); setOverride(${num}, 'totalOverride', 'yes')" />
+      </div>`;
+  } else if (resort.id === 'vakkaru') {
+    const meal = resort.mealPlans.find(m => m.id === s.mealPlan);
+    fields = `
+      <div class="form-row">
+        <label>Rate Per Night ($)</label>
+        <input type="number" value="${ov.ratePerNight ?? (meal.ratePerNight ?? 900)}"
+          onchange="setOverride(${num}, 'ratePerNight', this.value); setOverride(${num}, 'totalOverride', 'yes')" />
+      </div>`;
+  }
+
+  return fields;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// TOTALS
+// ─────────────────────────────────────────────────────────────────────────────
+function updateTotals() {
+  const cost1 = computeCost(1);
+  const cost2 = computeCost(2);
+
+  const totalCash = cost1.cashCost + cost2.cashCost;
+  const totalChase = cost1.chasePoints + cost2.chasePoints;
+  const totalAmex = cost1.amexPoints + cost2.amexPoints;
+  const totalNights = cost1.nights + cost2.nights;
+
+  const budget = DATA.globalSettings.totalBudget;
+  const diff = budget - totalCash;
+  const isUnder = diff >= 0;
+
+  document.getElementById('total-cash').textContent = fmt(totalCash);
+  document.getElementById('total-cash-sub').textContent =
+    `Resort 1: ${fmt(cost1.cashCost)} · Resort 2: ${fmt(cost2.cashCost)}`;
+  document.getElementById('total-chase-pts').textContent =
+    totalChase > 0 ? totalChase.toLocaleString() + ' pts' : '0';
+  document.getElementById('total-chase-sub').textContent =
+    totalChase > 0 ? `≈ ${totalChase.toLocaleString()} Hyatt pts` : 'No points used';
+  document.getElementById('total-amex-pts').textContent =
+    totalAmex > 0 ? totalAmex.toLocaleString() + ' pts' : '0';
+  document.getElementById('total-amex-sub').textContent = 'Not used for these resorts';
+  document.getElementById('total-nights').textContent = totalNights;
+
+  // Budget bar
+  const pct = Math.min((totalCash / (budget * 1.5)) * 100, 100);
+  const bar = document.getElementById('budget-bar');
+  bar.style.width = pct + '%';
+  bar.className = 'bar-fill ' + (isUnder ? 'under' : 'over');
+
+  const diffEl = document.getElementById('budget-diff');
+  diffEl.textContent = (isUnder ? '✓ ' : '⚠ ') + fmt(Math.abs(diff)) + (isUnder ? ' under budget' : ' OVER budget');
+  diffEl.className = 'budget-diff ' + (isUnder ? 'under' : 'over');
+
+  const badge = document.getElementById('budget-badge');
+  badge.textContent = isUnder ? 'UNDER BUDGET' : 'OVER BUDGET';
+  badge.className = 'budget-status-badge ' + (isUnder ? 'under' : 'over');
+
+  // Points remaining
+  const chaseUsed = totalChase;
+  const chaseLeft = DATA.globalSettings.chasePoints - chaseUsed;
+  document.getElementById('chase-remaining').textContent = chaseLeft.toLocaleString() + ' pts';
+  document.getElementById('chase-used-label').textContent = `${chaseUsed.toLocaleString()} used of ${DATA.globalSettings.chasePoints.toLocaleString()}`;
+
+  const amexLeft = DATA.globalSettings.amexPoints - totalAmex;
+  document.getElementById('amex-remaining').textContent = amexLeft.toLocaleString() + ' pts';
+  document.getElementById('amex-used-label').textContent = `${totalAmex.toLocaleString()} used of ${DATA.globalSettings.amexPoints.toLocaleString()}`;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// EVENT HANDLERS
+// ─────────────────────────────────────────────────────────────────────────────
+function onResortChange(num, resortId) {
+  overrides[num] = {};
+  const resort = DATA.resorts.find(r => r.id === resortId);
+  sel[num] = {
+    resortId,
+    nights: resort.defaultNights,
+    villa: resort.defaultVilla,
+    mealPlan: resort.defaultMealPlan
+  };
+  renderCard(num);
+  updateTotals();
+  saveSession(num); // persist resort switch
+}
+
+function onNightsChange(num, val) {
+  sel[num].nights = parseInt(val) || 1;
+  // Clear manual overrides that depend on nights
+  delete overrides[num].totalOverride;
+  renderCard(num);
+  updateTotals();
+  saveSession(num); // persist nights change
+}
+
+function onVillaChange(num, val) {
+  sel[num].villa = val;
+  renderCard(num);
+  updateTotals();
+  saveSession(num); // persist villa change
+}
+
+function onMealChange(num, val) {
+  sel[num].mealPlan = val;
+  delete overrides[num].totalOverride;
+  renderCard(num);
+  updateTotals();
+  saveSession(num); // persist meal plan change
+}
+
+function setOverride(num, key, val) {
+  overrides[num][key] = val;
+  updateTotals();
+  // Re-render summary only (avoid full re-render losing focus)
+  const cost = computeCost(num);
+  const resort = DATA.resorts.find(r => r.id === sel[num].resortId);
+  const s = sel[num];
+  const summaryEl = document.querySelector(`#resort-card-${num} .summary-block`);
+  if (summaryEl) {
+    summaryEl.innerHTML = `<h3>Cost Breakdown</h3>
+      ${buildSummaryRows(num, cost, resort, s)}
+      <div class="eff-rate-ribbon">
+        <span class="eff-label">Effective Nightly Rate</span>
+        <span class="eff-val">${fmt(cost.effectiveNightly)}</span>
+      </div>`;
+  }
+  saveSession(num, true); // debounced save — waits 600ms after last keypress
+}
+
+function resetOverrides(num) {
+  overrides[num] = {};
+  renderCard(num);
+  updateTotals();
+  saveSession(num); // persist cleared overrides
+}
+
+function toggleOverrides(num) {
+  const body = document.getElementById(`ov-body-${num}`);
+  const icon = document.getElementById(`ov-toggle-${num}`);
+  body.classList.toggle('hidden');
+  icon.textContent = body.classList.contains('hidden') ? '▼' : '▲';
+}
+
+function toggleNotes(num) {
+  const body = document.getElementById(`notes-body-${num}`);
+  const icon = document.getElementById(`notes-toggle-${num}`);
+  body.classList.toggle('hidden');
+  icon.textContent = body.classList.contains('hidden') ? '▼' : '▲';
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────────────────────────────────────
+function fmt(val) {
+  if (val === undefined || val === null || isNaN(val)) return '—';
+  return '$' + Number(val).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function getNightsHint(resort, nights) {
+  if (resort.id === 'ritz-carlton') {
+    if (nights >= 4) return '✓ Transfer waived at 4+ nights';
+    return '⚠ Transfer waiver unconfirmed at 3 nights';
+  }
+  if (resort.id === 'park-hyatt') {
+    return `${(nights * resort.defaultPointsPerNight).toLocaleString()} pts total`;
+  }
+  return '';
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// BOOT
+// ─────────────────────────────────────────────────────────────────────────────
+loadData();
+</script>
+</body>
+</html>

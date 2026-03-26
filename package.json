@@ -1,0 +1,17 @@
+{
+  "name": "maldives-honeymoon-comparison",
+  "version": "1.0.0",
+  "description": "Side-by-side Maldives resort comparison tool with SQLite-backed session persistence",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "sql.js": "^1.12.0"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

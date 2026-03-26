@@ -1,0 +1,474 @@
+{
+  "globalSettings": {
+    "totalBudget": 10000,
+    "chasePoints": 320000,
+    "amexPoints": 300000,
+    "chaseToHyattRatio": 1,
+    "targetDates": "June 9–18, 2026",
+    "totalNights": 9
+  },
+  "resorts": [
+    {
+      "id": "park-hyatt",
+      "name": "Park Hyatt Maldives Hadahaa",
+      "loyaltyProgram": "World of Hyatt (Category 7)",
+      "bookingMethod": "points",
+      "pointsCurrency": "Chase → Hyatt (1:1)",
+      "location": "Hadahaa, Gaafu Alifu Atoll",
+      "transfer": {
+        "costPerPerson": 610,
+        "totalForTwo": 1220,
+        "description": "Domestic flight + speedboat (fixed regardless of nights)",
+        "details": "International flight to Malé + 50-min domestic flight to Kooddoo + 30-min speedboat"
+      },
+      "villaTypes": [
+        {
+          "id": "beach-villa",
+          "name": "Beach Villa",
+          "supplementPerNight": 0,
+          "taxRate": 0.17,
+          "note": "Base room — covered by points"
+        },
+        {
+          "id": "beach-pool-villa",
+          "name": "Beach Pool Villa",
+          "supplementPerNight": 100,
+          "taxRate": 0.17,
+          "note": "$100/night + 17% TGST = $117/night"
+        },
+        {
+          "id": "overwater-sunset-villa",
+          "name": "Overwater Sunset Villa (no pool)",
+          "supplementPerNight": 250,
+          "taxRate": 0.17,
+          "note": "$250/night + 17% TGST = $292.50/night"
+        },
+        {
+          "id": "overwater-sunset-pool-villa",
+          "name": "Overwater Sunset Pool Villa",
+          "supplementPerNight": 350,
+          "taxRate": 0.17,
+          "note": "$350/night + 17% TGST = $409.50/night"
+        },
+        {
+          "id": "deluxe-beach-pool-villa",
+          "name": "Deluxe Beach Pool Villa",
+          "supplementPerNight": 650,
+          "taxRate": 0.17,
+          "note": "$650/night + 17% TGST = $760.50/night"
+        }
+      ],
+      "mealPlans": [
+        {
+          "id": "breakfast",
+          "name": "Breakfast Only",
+          "costPerNightForTwo": 103,
+          "note": "$51.50/person/night (taxes included)"
+        },
+        {
+          "id": "half-board-plus",
+          "name": "Half Board Plus (Breakfast + Dinner)",
+          "costPerNightForTwo": 383,
+          "note": "$191.50/person/night (taxes included)"
+        },
+        {
+          "id": "full-board-plus",
+          "name": "Full Board Plus (Breakfast + Lunch + Dinner)",
+          "costPerNightForTwo": 563,
+          "note": "$281.50/person/night (taxes included)"
+        },
+        {
+          "id": "all-inclusive",
+          "name": "All Inclusive (incl. alcohol)",
+          "costPerNightForTwo": 743,
+          "note": "$371.50/person/night (taxes included)"
+        }
+      ],
+      "pointsPerNight": {
+        "standard": 30000,
+        "offPeak": 25000
+      },
+      "defaultPointsPerNight": 30000,
+      "honeymooonInclusions": [
+        "Complimentary bottle of sparkling wine on arrival",
+        "One-time bed decoration"
+      ],
+      "notes": [
+        "Breakfast is NOT included on points award stays — must be added separately",
+        "Upgrade supplements are dynamic and subject to change — rates above are June estimates",
+        "Resort recommends confirming upgrade within 48 hours of quote to lock rate",
+        "Only 14 overwater villas on property — limited availability",
+        "Getting here requires: international flight to Malé + 50-min domestic flight to Kooddoo + 30-min speedboat"
+      ],
+      "defaultNights": 5,
+      "defaultVilla": "overwater-sunset-villa",
+      "defaultMealPlan": "breakfast"
+    },
+    {
+      "id": "ritz-carlton",
+      "name": "Ritz-Carlton Maldives, Fari Islands",
+      "loyaltyProgram": "Marriott Bonvoy",
+      "bookingMethod": "cash",
+      "pointsCurrency": null,
+      "location": "Fari Islands, North Malé Atoll",
+      "agentRate": 1275,
+      "websiteRate3Nights": 1615,
+      "websiteRate4Nights": 1810,
+      "taxRate": 0.202,
+      "serviceCharge": 0.10,
+      "mealPlanIncluded": "Half Board (breakfast + dinner)",
+      "transfer": {
+        "costTotal": 2054,
+        "description": "Speedboat from Malé area",
+        "waivedAt4Nights": true,
+        "waivedAt3NightsUnconfirmed": true
+      },
+      "nightOptions": [
+        {
+          "nights": 3,
+          "room": 3825,
+          "taxes": 772,
+          "serviceCharge": 383,
+          "transfer": 2054,
+          "transferWaived": false,
+          "totalWithTransfer": 7034,
+          "totalWithoutTransfer": 4980,
+          "effectiveNightlyWithTransfer": 2345,
+          "effectiveNightlyWithoutTransfer": 1660,
+          "note": "Transfer waiver at 3 nights UNCONFIRMED — needs to be asked"
+        },
+        {
+          "nights": 4,
+          "room": 5100,
+          "taxes": 1030,
+          "serviceCharge": 510,
+          "transfer": 0,
+          "transferWaived": true,
+          "total": 6640,
+          "effectiveNightly": 1660,
+          "note": "Transfer WAIVED at 4 nights per deal terms"
+        }
+      ],
+      "villaTypes": [
+        {
+          "id": "standard",
+          "name": "Standard (Agent Rate)",
+          "note": "Specific villa category not specified in agent quote"
+        }
+      ],
+      "mealPlans": [
+        {
+          "id": "half-board-included",
+          "name": "Half Board Included (Breakfast + Dinner)",
+          "costPerNightForTwo": 0,
+          "note": "Included in all quoted agent rates"
+        }
+      ],
+      "honeymooonInclusions": [
+        "Honeymoon inclusions NOT YET CONFIRMED — ask agent"
+      ],
+      "notes": [
+        "Do NOT transfer Chase/Amex points here — poor value",
+        "Use agent rate ($1,275/night), NOT website rate",
+        "4 nights is meaningfully better than 3 nights because transfer waiver saves $2,054",
+        "At agent rate, 4 nights all-in ($6,640) is actually cheaper than 3 nights with transfer ($7,034)",
+        "Transfer waiver at 3 nights: UNCONFIRMED — needs to be asked"
+      ],
+      "defaultNights": 4,
+      "defaultVilla": "standard",
+      "defaultMealPlan": "half-board-included"
+    },
+    {
+      "id": "conrad",
+      "name": "Conrad Maldives Rangali Island",
+      "loyaltyProgram": "Hilton Honors",
+      "bookingMethod": "cash",
+      "pointsCurrency": null,
+      "location": "Rangali Island, South Ari Atoll",
+      "agentRate": 624,
+      "mealPlanIncluded": "Half Board (breakfast + dinner) — upgraded from breakfast only at no extra cost",
+      "resortCredit": 100,
+      "resortCreditNote": "$100 USD resort credit (dining or spa)",
+      "serviceCharge": 0.10,
+      "tgst": 0.17,
+      "greenTaxPerPersonPerNight": 12,
+      "transfer": {
+        "standardSeaplanePerPerson": 700,
+        "agentDiscountedTotal": 980,
+        "agentDiscountPercent": 30,
+        "description": "Seaplane RT (30% agent discount) = $980 for 2",
+        "lateArrivalNote": "Seaplanes operate daylight hours only — must arrive before 3:30PM. Late arrivals: domestic flight $445/person each way"
+      },
+      "nightOptions": [
+        {
+          "nights": 4,
+          "room": 2496,
+          "serviceCharge": 249.60,
+          "tgst": 466.75,
+          "greenTax": 96,
+          "seaplane": 980,
+          "total": 4288.35,
+          "effectiveNightly": 1072
+        },
+        {
+          "nights": 5,
+          "room": 3120,
+          "serviceCharge": 312,
+          "tgst": 583.44,
+          "greenTax": 120,
+          "seaplane": 980,
+          "total": 5115.44,
+          "effectiveNightly": 1023
+        }
+      ],
+      "villaTypes": [
+        {
+          "id": "sunrise-water-villa",
+          "name": "Sunrise Water Villa",
+          "ratePerNight": 624,
+          "note": "Agent rate"
+        }
+      ],
+      "mealPlans": [
+        {
+          "id": "half-board-included",
+          "name": "Half Board Included (Breakfast + Dinner)",
+          "costPerNightForTwo": 0,
+          "note": "Included via agent deal — Atoll Market buffet + dine-around options"
+        }
+      ],
+      "dineAroundDetails": [
+        "Buffet at Atoll Market restaurant included",
+        "Dine-around: à la carte 3-course menu at Vilu, Mandhoo, Ufaa, Sunset Grill",
+        "Signature restaurants (Ithaa, Beach BBQ, KOKO Grill, Wine Cellar): $145/person dinner credit applies",
+        "Beverages NOT included in half board"
+      ],
+      "honeymooonInclusions": [
+        "Tropical flower bed decoration"
+      ],
+      "amexNote": "Enroll in complimentary Hilton Gold via Amex Platinum BEFORE booking — does NOT stack with agent rate. Agent rate is better value.",
+      "notes": [
+        "Do NOT transfer Amex points to Hilton — poor value (180K pts/night after devaluations)",
+        "Pre-book specialty restaurants 7–14 days before arrival (Ithaa especially fills up fast)",
+        "Contact: MLEHI.Experiences@conradhotels.com for dining reservations",
+        "$100 resort credit included (dining or spa)",
+        "Seaplanes operate daylight hours only — must arrive before 3:30PM"
+      ],
+      "defaultNights": 5,
+      "defaultVilla": "sunrise-water-villa",
+      "defaultMealPlan": "half-board-included"
+    },
+    {
+      "id": "westin",
+      "name": "Westin Maldives Miriandhoo",
+      "loyaltyProgram": "Marriott Bonvoy",
+      "bookingMethod": "cash",
+      "pointsCurrency": null,
+      "location": "Miriandhoo Island, Baa Atoll",
+      "note": "Westin confirmed no specific honeymoon offer and no bundled Marriott split-stay benefits",
+      "transfer": {
+        "costTotal": 1118,
+        "description": "Speedboat (included in all quoted rates)",
+        "splitStayNote": "Westin can arrange speedboat to Vakkaru for $400 total for 2"
+      },
+      "nightOptions": [
+        {
+          "nights": 5,
+          "mealPlan": "breakfast",
+          "room": 2626.75,
+          "taxes": 611.20,
+          "serviceCharge": 262.68,
+          "transfer": 1118,
+          "total": 4618.63,
+          "effectiveNightly": 923.73
+        },
+        {
+          "nights": 5,
+          "mealPlan": "full-board-drinks",
+          "room": 3860,
+          "taxes": 841.82,
+          "serviceCharge": 386,
+          "transfer": 1118,
+          "total": 6205.82,
+          "effectiveNightly": 1241.16
+        },
+        {
+          "nights": 5,
+          "mealPlan": "breakfast-dinner",
+          "room": 3150,
+          "taxes": 725,
+          "serviceCharge": 315,
+          "transfer": 1118,
+          "total": 5308,
+          "effectiveNightly": 1061.60,
+          "note": "Estimated — dinner plan coverage TBD (email sent to confirm)"
+        }
+      ],
+      "villaTypes": [
+        {
+          "id": "standard",
+          "name": "Standard Villa",
+          "note": "Specific villa category not differentiated in quotes"
+        }
+      ],
+      "mealPlans": [
+        {
+          "id": "breakfast",
+          "name": "Breakfast Only",
+          "ratePerNight": 525.35,
+          "note": "$525.35/night before taxes"
+        },
+        {
+          "id": "breakfast-dinner",
+          "name": "Breakfast + Dinner",
+          "ratePerNight": 630,
+          "note": "$630/night — coverage of restaurants TBD (email sent)"
+        },
+        {
+          "id": "full-board-drinks",
+          "name": "Full Board + Free-flow Drinks",
+          "ratePerNight": 772,
+          "note": "$772/night before taxes"
+        }
+      ],
+      "honeymooonInclusions": [
+        "No specific honeymoon offer confirmed"
+      ],
+      "notes": [
+        "Do NOT transfer Chase/Amex points — poor value",
+        "No agent rate available — booking at website rate",
+        "No specific honeymoon offer and no bundled Marriott split-stay benefits",
+        "Dinner plan: unknown whether B+D covers all restaurants or main restaurant only — email sent to confirm",
+        "Speedboat to Vakkaru available for $400 total for 2 (if doing split stay)"
+      ],
+      "defaultNights": 5,
+      "defaultVilla": "standard",
+      "defaultMealPlan": "breakfast"
+    },
+    {
+      "id": "vakkaru",
+      "name": "Vakkaru Maldives",
+      "loyaltyProgram": "None (independent resort)",
+      "bookingMethod": "cash",
+      "pointsCurrency": null,
+      "location": "Vakkaru Island, Baa Atoll",
+      "agentRateHB": 900,
+      "agentRateFB": 1080,
+      "transfer": {
+        "splitStayFromWestin": 400,
+        "splitStaySeaplaneDeparture": 624,
+        "splitStayTotal": 1024,
+        "standaloneSeaplaneRT": 960,
+        "juneDiscountedSeaplaneRT": 1248,
+        "description": "Seaplane or speedboat depending on stay type"
+      },
+      "nightOptions": [
+        {
+          "nights": 4,
+          "mealPlan": "half-board",
+          "ratePerNight": 900,
+          "total": 4729.20,
+          "effectiveNightly": 1182.30,
+          "note": "Taxes and fees included"
+        },
+        {
+          "nights": 4,
+          "mealPlan": "full-board",
+          "ratePerNight": 1080,
+          "total": 5655.84,
+          "effectiveNightly": 1413.96,
+          "note": "Taxes and fees included"
+        }
+      ],
+      "villaTypes": [
+        {
+          "id": "standard",
+          "name": "Standard Villa",
+          "note": "Agent rate — specific villa TBD"
+        }
+      ],
+      "mealPlans": [
+        {
+          "id": "half-board",
+          "name": "Half Board (Breakfast + Dinner)",
+          "ratePerNight": 900,
+          "note": "$900/night all-in (agent rate, 4 nights)"
+        },
+        {
+          "id": "full-board",
+          "name": "Full Board (Breakfast + Lunch + Dinner)",
+          "ratePerNight": 1080,
+          "note": "$1,080/night all-in (agent rate, 4 nights)"
+        }
+      ],
+      "honeymooonInclusions": [
+        "Welcome bottle of champagne",
+        "Tropical fruit basket",
+        "One evening bath ritual with candles and rose petals",
+        "Bed decoration",
+        "Special dinner set-up"
+      ],
+      "honeymooonNote": "Confirmed within 12 months of wedding",
+      "notes": [
+        "No loyalty program — independent resort",
+        "No points redemption available",
+        "Dinner inclusion: unknown whether HB covers all restaurants or main only — email sent to confirm",
+        "Split stay from Westin: $400 speedboat (Westin's quote) + $624 departure seaplane = $1,024 total",
+        "Standalone seaplane RT: $960 standard / $1,248 June discounted rate"
+      ],
+      "defaultNights": 4,
+      "defaultVilla": "standard",
+      "defaultMealPlan": "half-board"
+    }
+  ],
+  "suggestedCombinations": [
+    {
+      "label": "Combo 1",
+      "description": "Park Hyatt (5 nts, Overwater Sunset, Breakfast) + Conrad (5 nts, HB)",
+      "resort1": { "id": "park-hyatt", "nights": 5, "villa": "overwater-sunset-villa", "mealPlan": "breakfast" },
+      "resort2": { "id": "conrad", "nights": 5, "villa": "sunrise-water-villa", "mealPlan": "half-board-included" }
+    },
+    {
+      "label": "Combo 2",
+      "description": "Park Hyatt (5 nts, Overwater Sunset, Breakfast) + Conrad (4 nts, HB)",
+      "resort1": { "id": "park-hyatt", "nights": 5, "villa": "overwater-sunset-villa", "mealPlan": "breakfast" },
+      "resort2": { "id": "conrad", "nights": 4, "villa": "sunrise-water-villa", "mealPlan": "half-board-included" }
+    },
+    {
+      "label": "Combo 3",
+      "description": "Park Hyatt (6 nts, Overwater Sunset, Breakfast) + Conrad (4 nts, HB)",
+      "resort1": { "id": "park-hyatt", "nights": 6, "villa": "overwater-sunset-villa", "mealPlan": "breakfast" },
+      "resort2": { "id": "conrad", "nights": 4, "villa": "sunrise-water-villa", "mealPlan": "half-board-included" }
+    },
+    {
+      "label": "Combo 4",
+      "description": "Park Hyatt (5 nts, Overwater Sunset, Breakfast) + Ritz (4 nts, HB, transfer waived)",
+      "resort1": { "id": "park-hyatt", "nights": 5, "villa": "overwater-sunset-villa", "mealPlan": "breakfast" },
+      "resort2": { "id": "ritz-carlton", "nights": 4, "villa": "standard", "mealPlan": "half-board-included" }
+    },
+    {
+      "label": "Combo 5",
+      "description": "Park Hyatt (5 nts, Overwater Sunset, Breakfast) + Ritz (3 nts, HB)",
+      "resort1": { "id": "park-hyatt", "nights": 5, "villa": "overwater-sunset-villa", "mealPlan": "breakfast" },
+      "resort2": { "id": "ritz-carlton", "nights": 3, "villa": "standard", "mealPlan": "half-board-included" }
+    },
+    {
+      "label": "Combo 6",
+      "description": "Westin (5 nts, Breakfast) + Conrad (5 nts, HB)",
+      "resort1": { "id": "westin", "nights": 5, "villa": "standard", "mealPlan": "breakfast" },
+      "resort2": { "id": "conrad", "nights": 5, "villa": "sunrise-water-villa", "mealPlan": "half-board-included" }
+    },
+    {
+      "label": "Combo 7",
+      "description": "Westin (5 nts, Breakfast) + Vakkaru (4 nts, HB)",
+      "resort1": { "id": "westin", "nights": 5, "villa": "standard", "mealPlan": "breakfast" },
+      "resort2": { "id": "vakkaru", "nights": 4, "villa": "standard", "mealPlan": "half-board" }
+    },
+    {
+      "label": "Combo 8",
+      "description": "Westin (5 nts, Breakfast) + Park Hyatt (5 nts, Overwater Sunset, Breakfast)",
+      "resort1": { "id": "westin", "nights": 5, "villa": "standard", "mealPlan": "breakfast" },
+      "resort2": { "id": "park-hyatt", "nights": 5, "villa": "overwater-sunset-villa", "mealPlan": "breakfast" }
+    }
+  ]
+}
