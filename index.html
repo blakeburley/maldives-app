@@ -429,6 +429,194 @@
       line-height: 1.5;
     }
     .section-sep { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+
+    /* ── Flights panel ───────────────────────────────────────────────────────── */
+    .flights-panel {
+      max-width: 1280px;
+      margin: 20px auto 0;
+      padding: 0 20px;
+    }
+    .flights-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 22px 28px;
+    }
+    .flights-header-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .flights-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      flex: 1;
+    }
+    .flights-dates {
+      font-size: .83rem;
+      color: var(--muted);
+    }
+    .include-toggle {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--accent);
+      cursor: pointer;
+      background: var(--accent-light);
+      border: 1px solid #b3cfeb;
+      border-radius: 20px;
+      padding: 5px 13px;
+      white-space: nowrap;
+    }
+    .include-toggle input { cursor: pointer; accent-color: var(--accent); }
+
+    .passenger-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 640px) { .passenger-grid { grid-template-columns: 1fr; } }
+
+    .passenger-col {
+      background: #f7f9fc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .passenger-name {
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .flight-result {
+      margin-top: 8px;
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--text);
+      background: var(--accent-light);
+      border-radius: 6px;
+      padding: 6px 10px;
+      min-height: 32px;
+    }
+    .flight-result .note-small {
+      font-size: .75rem;
+      font-weight: 400;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .flight-totals-row {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+    .ft-label { font-size: .82rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+    .ft-value { font-size: 1.3rem; font-weight: 700; color: #15803d; }
+    .ft-pts   { font-size: .85rem; color: #7c3aed; font-weight: 600; }
+    .ft-disabled { font-size: .82rem; color: var(--muted); font-style: italic; }
+
+    /* Points Allocation */
+    .pts-allocation {
+      background: #f5f0ff;
+      border: 1px solid #d1b8f5;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+    .pa-header {
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: #7c3aed;
+      margin-bottom: 12px;
+    }
+    .pa-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+    }
+    .pa-col {
+      background: #fff;
+      border: 1px solid #d1b8f5;
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .pa-label {
+      font-size: .75rem;
+      font-weight: 700;
+      color: #7c3aed;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+      margin-bottom: 6px;
+    }
+    .pa-row {
+      font-size: .8rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .pa-row b { color: var(--text); }
+    .pa-remaining {
+      font-weight: 700;
+      color: #5b21b6;
+      border-top: 1px solid #e9d5ff;
+      margin-top: 4px;
+      padding-top: 4px;
+    }
+    .pa-remaining.over { color: var(--red); }
+    .pa-sub {
+      font-size: .73rem;
+      color: #9061d0;
+      margin-top: 2px;
+    }
+    .pa-note {
+      font-size: .73rem;
+      color: #856404;
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 4px;
+      padding: 2px 6px;
+      margin-top: 4px;
+      display: inline-block;
+    }
+
+    /* Custom flight form */
+    .custom-flight-form .form-row { margin-bottom: 8px; }
+    .custom-flight-list { margin-top: 8px; }
+    .custom-flight-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .8rem;
+      color: var(--muted);
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .custom-flight-item button {
+      background: none;
+      border: none;
+      color: var(--red);
+      cursor: pointer;
+      font-size: .85rem;
+      padding: 0 4px;
+    }
   </style>
 </head>
 <body>
@@ -460,6 +648,133 @@
 <div class="main-grid">
   <div id="resort-card-1" class="resort-card"></div>
   <div id="resort-card-2" class="resort-card"></div>
+</div>
+
+<!-- ✈️ Flights panel -->
+<div class="flights-panel">
+  <div class="flights-card">
+
+    <div class="flights-header-row">
+      <div class="flights-title">✈️ Flights</div>
+      <div class="flights-dates" id="flights-dates-label">June 7–19, 2026 · DFW → Malé</div>
+      <label class="include-toggle">
+        <input type="checkbox" id="include-flights" onchange="updateTotals()" />
+        Include in $10,000 budget
+      </label>
+    </div>
+
+    <!-- Per-passenger selectors -->
+    <div class="passenger-grid">
+      <!-- Blake -->
+      <div class="passenger-col">
+        <div class="passenger-name">✈ Blake</div>
+        <div class="form-row">
+          <label>Flight Option</label>
+          <select id="blake-flight-sel" onchange="onFlightChange()"></select>
+        </div>
+        <div class="form-row">
+          <label>Pay With</label>
+          <select id="blake-pay-sel" onchange="onFlightChange()">
+            <option value="cash">💵 Cash</option>
+            <option value="avios">✈️ Avios — 168,000 available (from Chase transfer)</option>
+            <option value="chase-transfer">🔀 Chase UR → Avios (reduces Park Hyatt budget)</option>
+          </select>
+        </div>
+        <div class="flight-result" id="blake-flight-result">—</div>
+      </div>
+      <!-- Monica -->
+      <div class="passenger-col">
+        <div class="passenger-name">✈ Monica</div>
+        <div class="form-row">
+          <label>Flight Option</label>
+          <select id="monica-flight-sel" onchange="onFlightChange()"></select>
+        </div>
+        <div class="form-row">
+          <label>Pay With</label>
+          <select id="monica-pay-sel" onchange="onFlightChange()">
+            <option value="cash">💵 Cash</option>
+            <option value="amex">💳 Amex MR → Avios — 300,000 available</option>
+          </select>
+        </div>
+        <div class="flight-result" id="monica-flight-result">—</div>
+      </div>
+    </div>
+
+    <!-- Flight cost summary row -->
+    <div class="flight-totals-row">
+      <span class="ft-label">Total Flight Cost</span>
+      <span class="ft-value" id="ft-cash">—</span>
+      <span class="ft-pts" id="ft-pts"></span>
+      <span class="ft-disabled" id="ft-disabled"></span>
+    </div>
+
+    <!-- Points Allocation panel -->
+    <div class="pts-allocation">
+      <div class="pa-header">📊 Points Allocation Tracker</div>
+      <div class="pa-grid">
+        <!-- Blake Chase UR -->
+        <div class="pa-col">
+          <div class="pa-label">Blake — Chase UR</div>
+          <div class="pa-row">Starting: <b>180,555 pts</b></div>
+          <div class="pa-row" id="pa-hyatt">Park Hyatt: <b>0 pts</b> (0 nights)</div>
+          <div class="pa-row" id="pa-chase-flight">Flight: <b>0 pts</b></div>
+          <div class="pa-row pa-remaining" id="pa-chase-remaining">Remaining: 180,555 pts</div>
+          <div class="pa-sub" id="pa-chase-nights">= 6 more nights at Park Hyatt possible</div>
+        </div>
+        <!-- Blake Avios -->
+        <div class="pa-col">
+          <div class="pa-label">Blake — Avios (locked in)</div>
+          <div class="pa-row">Starting: <b>168,000 pts</b></div>
+          <div class="pa-note">From 140K Chase UR at 20% bonus</div>
+          <div class="pa-row" id="pa-avios-flight" style="margin-top:6px;">Flight: <b>0 pts</b></div>
+          <div class="pa-row pa-remaining" id="pa-avios-remaining">Remaining: 168,000 pts</div>
+        </div>
+        <!-- Monica Amex -->
+        <div class="pa-col">
+          <div class="pa-label">Monica — Amex MR</div>
+          <div class="pa-row">Starting: <b>300,000 pts</b></div>
+          <div class="pa-row" id="pa-amex-flight">Flight: <b>0 pts</b></div>
+          <div class="pa-row pa-remaining" id="pa-amex-remaining">Remaining: 300,000 pts</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Override / Custom flight section -->
+    <div class="overrides" id="flight-ov-section">
+      <div class="overrides-header" onclick="toggleFlightOverrides()">
+        <h3>✏️ Override Prices / Add Custom Flight</h3>
+        <span class="toggle-icon" id="flight-ov-toggle">▼</span>
+      </div>
+      <div class="overrides-body hidden" id="flight-ov-body">
+        <div class="form-row">
+          <label>Cash Price Override (per person, $) — applies to both passengers</label>
+          <input type="number" id="ov-flight-cash" placeholder="Leave blank to use listed price"
+            onchange="setFlightOverride('cashPerPerson', this.value)" />
+        </div>
+        <div class="form-row">
+          <label>Points Override (per person, Avios/pts) — applies to both passengers</label>
+          <input type="number" id="ov-flight-pts" placeholder="Leave blank to use listed points"
+            onchange="setFlightOverride('ptsPerPerson', this.value)" />
+        </div>
+        <hr class="section-sep">
+        <div class="pa-label" style="margin-bottom:10px;">Add Entirely New Flight Option</div>
+        <div class="custom-flight-form">
+          <div class="form-row"><label>Airline</label><input type="text" id="cf-airline" placeholder="e.g. Qatar Airways" /></div>
+          <div class="form-row"><label>Route</label><input type="text" id="cf-route" placeholder="e.g. DFW → DOH → MLE" /></div>
+          <div class="form-row"><label>Cabin</label><input type="text" id="cf-cabin" placeholder="Economy / Business" /></div>
+          <div class="form-row"><label>Cash/person ($)</label><input type="number" id="cf-cash" placeholder="e.g. 2000" /></div>
+          <div class="form-row"><label>Points/person (RT Avios)</label><input type="number" id="cf-pts" placeholder="e.g. 150000" /></div>
+          <button class="reset-btn" onclick="addCustomFlight()"
+            style="background:var(--accent);color:#fff;border-color:var(--accent);margin-bottom:8px;">
+            + Add to Flight Options
+          </button>
+        </div>
+        <div class="custom-flight-list" id="custom-flight-list"></div>
+        <button class="reset-btn" onclick="resetFlightOverrides()">↺ Reset All Overrides &amp; Remove Custom Flights</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <!-- Totals panel -->
@@ -636,6 +951,8 @@ function init() {
   buildComboButtons();
   // Default: Combo 1
   applyCombo(DATA.suggestedCombinations[0]);
+  // Build the flights section from DATA.flightData
+  buildFlightSection();
 }
 
 function buildComboButtons() {
@@ -718,8 +1035,8 @@ function renderCard(num) {
 
   // ── Warnings ──
   let warnings = '';
-  if (resort.id === 'ritz-carlton' && s.nights === 3) {
-    warnings = `<div class="warn-tag">⚠️ Transfer waiver at 3 nights UNCONFIRMED — ask agent</div><br>`;
+  if (resort.id === 'ritz-carlton' && s.nights < 4) {
+    warnings = `<div class="warn-tag">⚠️ Transfer ($2,054) is NOT waived at ${s.nights} night${s.nights > 1 ? 's' : ''} — waiver requires 4+ nights</div><br>`;
   }
   if (resort.id === 'westin' && s.mealPlan === 'breakfast-dinner') {
     warnings += `<div class="warn-tag">⚠️ Breakfast+Dinner restaurant coverage TBD — email sent</div><br>`;
@@ -866,37 +1183,45 @@ function computeCost(num) {
     ];
 
   } else if (resort.id === 'ritz-carlton') {
-    const agentRate = parseFloat(ov.agentRate ?? resort.agentRate);
-    const taxRate = parseFloat(ov.taxRate ?? resort.taxRate);
-    const serviceCharge = parseFloat(ov.serviceCharge ?? resort.serviceCharge);
+    // Match the precomputed option by BOTH nights AND meal plan
+    const nightOpt = resort.nightOptions.find(
+      n => n.nights === nights && n.mealPlan === s.mealPlan
+    );
 
-    const nightOpt = resort.nightOptions.find(n => n.nights === nights) || resort.nightOptions[resort.nightOptions.length - 1];
-    const room = agentRate * nights;
-    const taxes = room * taxRate;
-    const svc = room * serviceCharge;
-
-    let transfer = 0;
-    let transferNote = '';
-    if (nights >= 4) {
-      transfer = 0;
-      transferNote = 'Transfer WAIVED (4+ nights)';
+    if (nightOpt && ov.ratePerNight === undefined && ov.totalOverride === undefined) {
+      // Use exact precomputed figures from data.json
+      const transfer = nightOpt.transferWaived
+        ? 0
+        : parseFloat(ov.transferCost ?? resort.transfer.costTotal);
+      cashCost = nightOpt.room + nightOpt.taxes + nightOpt.serviceCharge + transfer;
+      breakdown = [
+        { label: `Room ($${nightOpt.ratePerNight}/nt × ${nights} nts)`, value: nightOpt.room },
+        { label: 'Taxes & fees', value: nightOpt.taxes },
+        { label: 'Service charge', value: nightOpt.serviceCharge },
+        { label: nightOpt.transferWaived
+            ? 'Transfer (waived — 4+ nights)'
+            : `Transfer — NOT waived at ${nights} nts`,
+          value: transfer }
+      ];
     } else {
-      transfer = parseFloat(ov.transferCost ?? resort.transfer.costTotal);
-      transferNote = 'Transfer (waiver unconfirmed)';
+      // Override or non-standard nights: scale proportionally from nearest option
+      const baseOpt = nightOpt || resort.nightOptions.find(n => n.mealPlan === s.mealPlan) || resort.nightOptions[0];
+      const ratePerNight = parseFloat(ov.ratePerNight ?? baseOpt.ratePerNight ?? 1275);
+      const room = ratePerNight * nights;
+      const taxRate  = baseOpt ? (baseOpt.taxes / baseOpt.room) : 0.202;
+      const svcRate  = baseOpt ? (baseOpt.serviceCharge / baseOpt.room) : 0.10;
+      const taxes = room * taxRate;
+      const svc   = room * svcRate;
+      const transferWaived = nights >= 4;
+      const transfer = transferWaived ? 0 : parseFloat(ov.transferCost ?? resort.transfer.costTotal);
+      cashCost = room + taxes + svc + transfer;
+      breakdown = [
+        { label: `Room ($${ratePerNight}/nt × ${nights} nts)`, value: room },
+        { label: `Taxes (${(taxRate*100).toFixed(1)}%)`, value: taxes },
+        { label: `Service charge (${(svcRate*100).toFixed(0)}%)`, value: svc },
+        { label: transferWaived ? 'Transfer (waived — 4+ nights)' : `Transfer — NOT waived`, value: transfer }
+      ];
     }
-    if (ov.transferCost !== undefined) {
-      transfer = parseFloat(ov.transferCost);
-      transferNote = 'Transfer (override)';
-    }
-
-    cashCost = room + taxes + svc + transfer;
-
-    breakdown = [
-      { label: `Room ($${agentRate}/nt × ${nights} nts)`, value: room },
-      { label: `Taxes (${(taxRate*100).toFixed(1)}%)`, value: taxes },
-      { label: `Service charge (${(serviceCharge*100).toFixed(0)}%)`, value: svc },
-      { label: transferNote, value: transfer }
-    ];
 
   } else if (resort.id === 'conrad') {
     const nightOpt = resort.nightOptions.find(n => n.nights === nights);
@@ -975,6 +1300,36 @@ function computeCost(num) {
         { label: 'Taxes & fees (~31.9%)', value: taxes }
       ];
     }
+
+  } else if (resort.id === 'patina') {
+    // Keyed by villa (each villa has fixed 4-night pricing); HB + transfer always included
+    const nightOpt = resort.nightOptions.find(
+      n => n.villa === s.villa && n.nights === nights
+    );
+
+    if (nightOpt && ov.ratePerNight === undefined && ov.totalOverride === undefined) {
+      cashCost = parseFloat(ov.total ?? nightOpt.total);
+      breakdown = [
+        { label: `Room ($${nightOpt.ratePerNight}/nt × ${nights} nts)`, value: nightOpt.room },
+        { label: `Tax & service charge (28.7%)`, value: nightOpt.taxService },
+        { label: `Green tax ($24/night × ${nights})`, value: nightOpt.greenTax },
+        { label: 'Speedboat transfer', value: 0 }
+      ];
+    } else {
+      // Override or non-standard nights
+      const baseOpt = nightOpt || resort.nightOptions.find(n => n.villa === s.villa) || resort.nightOptions[0];
+      const rate = parseFloat(ov.ratePerNight ?? baseOpt.ratePerNight ?? 1585);
+      const room = rate * nights;
+      const taxSvc = room * resort.taxServiceRate;
+      const green = (resort.greenTaxPerPersonPerNight * 2) * nights;
+      cashCost = room + taxSvc + green;
+      breakdown = [
+        { label: `Room ($${rate}/nt × ${nights} nts)`, value: room },
+        { label: `Tax & service charge (28.7%)`, value: taxSvc },
+        { label: `Green tax ($24/night × ${nights})`, value: green },
+        { label: 'Speedboat transfer', value: 0 }
+      ];
+    }
   }
 
   const effectiveNightly = cashCost / nights;
@@ -1047,16 +1402,12 @@ function buildOverrideFields(num, resort, ov) {
           onchange="setOverride(${num}, 'transferCost', this.value)" />
       </div>`;
   } else if (resort.id === 'ritz-carlton') {
+    const rcOpt = resort.nightOptions.find(n => n.nights === s.nights && n.mealPlan === s.mealPlan) || resort.nightOptions[0];
     fields = `
       <div class="form-row">
-        <label>Agent Rate Per Night ($)</label>
-        <input type="number" value="${ov.agentRate ?? resort.agentRate}"
-          onchange="setOverride(${num}, 'agentRate', this.value)" />
-      </div>
-      <div class="form-row">
-        <label>Tax Rate (e.g. 0.202 = 20.2%)</label>
-        <input type="number" step="0.001" value="${ov.taxRate ?? resort.taxRate}"
-          onchange="setOverride(${num}, 'taxRate', this.value)" />
+        <label>Rate Per Night Override ($)</label>
+        <input type="number" value="${ov.ratePerNight ?? rcOpt.ratePerNight}"
+          onchange="setOverride(${num}, 'ratePerNight', this.value); setOverride(${num}, 'totalOverride', 'yes')" />
       </div>
       <div class="form-row">
         <label>Transfer Cost ($, 0 if waived)</label>
@@ -1096,6 +1447,15 @@ function buildOverrideFields(num, resort, ov) {
         <input type="number" value="${ov.ratePerNight ?? (meal.ratePerNight ?? 900)}"
           onchange="setOverride(${num}, 'ratePerNight', this.value); setOverride(${num}, 'totalOverride', 'yes')" />
       </div>`;
+  } else if (resort.id === 'patina') {
+    const pOpt = resort.nightOptions.find(n => n.villa === s.villa) || resort.nightOptions[0];
+    fields = `
+      <div class="form-row">
+        <label>Rate Per Night ($) — Direct Rate</label>
+        <input type="number" value="${ov.ratePerNight ?? pOpt.ratePerNight}"
+          onchange="setOverride(${num}, 'ratePerNight', this.value); setOverride(${num}, 'totalOverride', 'yes')" />
+      </div>
+      <div class="info-row" style="margin-top:-6px;">ℹ️ Agent rate is $${resort.agentDiscountPerNight} less/night (${pOpt.agentRatePerNight ? '$' + pOpt.agentRatePerNight + '/nt' : 'see notes'}). Enter agent rate above to recalculate.</div>`;
   }
 
   return fields;
@@ -1108,18 +1468,23 @@ function updateTotals() {
   const cost1 = computeCost(1);
   const cost2 = computeCost(2);
 
-  const totalCash = cost1.cashCost + cost2.cashCost;
-  const totalChase = cost1.chasePoints + cost2.chasePoints;
-  const totalAmex = cost1.amexPoints + cost2.amexPoints;
+  // Include flight cash cost if the checkbox is checked
+  const includeFlights = document.getElementById('include-flights')?.checked ?? false;
+  const flightCash     = includeFlights ? getFlightTotalCash() : 0;
+
+  const totalCash   = cost1.cashCost + cost2.cashCost + flightCash;
+  const totalChase  = cost1.chasePoints + cost2.chasePoints;
+  const totalAmex   = cost1.amexPoints  + cost2.amexPoints;
   const totalNights = cost1.nights + cost2.nights;
 
-  const budget = DATA.globalSettings.totalBudget;
-  const diff = budget - totalCash;
+  const budget  = DATA.globalSettings.totalBudget;
+  const diff    = budget - totalCash;
   const isUnder = diff >= 0;
 
   document.getElementById('total-cash').textContent = fmt(totalCash);
   document.getElementById('total-cash-sub').textContent =
-    `Resort 1: ${fmt(cost1.cashCost)} · Resort 2: ${fmt(cost2.cashCost)}`;
+    `Resort 1: ${fmt(cost1.cashCost)} · Resort 2: ${fmt(cost2.cashCost)}`
+    + (includeFlights && flightCash > 0 ? ` · Flights: ${fmt(flightCash)}` : '');
   document.getElementById('total-chase-pts').textContent =
     totalChase > 0 ? totalChase.toLocaleString() + ' pts' : '0';
   document.getElementById('total-chase-sub').textContent =
@@ -1152,6 +1517,9 @@ function updateTotals() {
   const amexLeft = DATA.globalSettings.amexPoints - totalAmex;
   document.getElementById('amex-remaining').textContent = amexLeft.toLocaleString() + ' pts';
   document.getElementById('amex-used-label').textContent = `${totalAmex.toLocaleString()} used of ${DATA.globalSettings.amexPoints.toLocaleString()}`;
+
+  // Keep the points allocation tracker in sync with resort changes
+  updateFlightDisplay();
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1246,12 +1614,300 @@ function fmt(val) {
 function getNightsHint(resort, nights) {
   if (resort.id === 'ritz-carlton') {
     if (nights >= 4) return '✓ Transfer waived at 4+ nights';
-    return '⚠ Transfer waiver unconfirmed at 3 nights';
+    return '⚠ Transfer NOT waived at 3 nights (+$2,054)';
   }
   if (resort.id === 'park-hyatt') {
-    return `${(nights * resort.defaultPointsPerNight).toLocaleString()} pts total`;
+    return `${(nights * resort.defaultPointsPerNight).toLocaleString()} Chase pts total`;
   }
   return '';
+}
+
+// =============================================================================
+// ✈️  FLIGHTS — state, computation, and display
+// =============================================================================
+
+// Mutable flight state (selections + overrides + custom options added by user)
+const flightState = {
+  blakeOption:    null,   // flight option id
+  blakePayment:  'cash',  // 'cash' | 'avios' | 'chase-transfer'
+  monicaOption:   null,
+  monicaPayment: 'cash',  // 'cash' | 'amex'
+  overrides: { cashPerPerson: null, ptsPerPerson: null },
+  customFlights: []       // user-added options
+};
+
+// ── Build/rebuild the flight selectors from DATA.flightData ──────────────────
+function buildFlightSection() {
+  const fd = DATA.flightData;
+  if (!fd) return;
+
+  const allOpts = [...fd.options, ...flightState.customFlights];
+
+  // Build <option> HTML for both selectors
+  const optHtml = allOpts.map(o => {
+    const cabin = o.cabin ? ` · ${o.cabin}` : '';
+    const cash  = o.cashPerPerson ? ` · $${o.cashPerPerson.toLocaleString()}/pp` :
+                  (o.cashPerPersonMin ? ` · $${o.cashPerPersonMin}–$${o.cashPerPersonMax}/pp` : '');
+    const pts   = o.pointsPerPersonRT ? ` · ${(o.pointsPerPersonRT/1000).toFixed(0)}K ${o.pointsProgram} pts` : '';
+    return `<option value="${o.id}">${o.airline}${cabin} · ${o.route}${cash}${pts}</option>`;
+  }).join('');
+
+  ['blake-flight-sel', 'monica-flight-sel'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = optHtml;
+  });
+
+  // Restore selections (default to first option)
+  if (!flightState.blakeOption)  flightState.blakeOption  = allOpts[0]?.id;
+  if (!flightState.monicaOption) flightState.monicaOption = allOpts[0]?.id;
+  const bSel = document.getElementById('blake-flight-sel');
+  const mSel = document.getElementById('monica-flight-sel');
+  if (bSel) bSel.value = flightState.blakeOption;
+  if (mSel) mSel.value = flightState.monicaOption;
+
+  // Sync payment selectors
+  const bPay = document.getElementById('blake-pay-sel');
+  const mPay = document.getElementById('monica-pay-sel');
+  if (bPay) bPay.value = flightState.blakePayment;
+  if (mPay) mPay.value = flightState.monicaPayment;
+
+  renderCustomFlightList();
+  updateFlightDisplay();
+}
+
+// ── Get a flight option by id (searches built-in + custom) ───────────────────
+function getFlightOpt(id) {
+  const fd = DATA.flightData;
+  return [...fd.options, ...flightState.customFlights].find(o => o.id === id);
+}
+
+// ── Compute one passenger's cost for their selected option + payment ──────────
+// Returns { cash, pts, program, note }
+function computePassengerFlight(optId, payment) {
+  const opt = getFlightOpt(optId);
+  if (!opt) return { cash: 0, pts: 0, program: null, note: '' };
+
+  const ovCash = flightState.overrides.cashPerPerson
+    ? parseFloat(flightState.overrides.cashPerPerson) : null;
+  const ovPts  = flightState.overrides.ptsPerPerson
+    ? parseInt(flightState.overrides.ptsPerPerson) : null;
+
+  // Cash per person: use override → opt.cashPerPerson → midpoint of range
+  const baseCash = opt.cashPerPerson
+    ?? ((opt.cashPerPersonMin && opt.cashPerPersonMax)
+        ? Math.round((opt.cashPerPersonMin + opt.cashPerPersonMax) / 2)
+        : 0);
+  const basePts  = opt.pointsPerPersonRT ?? 0;
+
+  switch (payment) {
+    case 'avios':
+    case 'amex':
+    case 'chase-transfer': {
+      const pts = ovPts ?? basePts;
+      if (!pts) {
+        // No points available for this flight — fall back to cash with warning
+        return { cash: ovCash ?? baseCash, pts: 0, program: null,
+                 note: 'Points not available for this flight — showing cash' };
+      }
+      return { cash: 0, pts, program: opt.pointsProgram ?? 'Avios', note: opt.note ?? '' };
+    }
+    default: // cash
+      return { cash: ovCash ?? baseCash, pts: 0, program: null, note: opt.note ?? '' };
+  }
+}
+
+// ── Get total cash cost of both flights (used by updateTotals) ────────────────
+function getFlightTotalCash() {
+  const b = computePassengerFlight(flightState.blakeOption,  flightState.blakePayment);
+  const m = computePassengerFlight(flightState.monicaOption, flightState.monicaPayment);
+  return b.cash + m.cash;
+}
+
+// ── Refresh all flight display elements ──────────────────────────────────────
+function updateFlightDisplay() {
+  if (!DATA || !DATA.flightData) return;
+  const fd  = DATA.flightData;
+  const pb  = fd.pointsBalance;
+  const included = document.getElementById('include-flights')?.checked;
+
+  const b = computePassengerFlight(flightState.blakeOption,  flightState.blakePayment);
+  const m = computePassengerFlight(flightState.monicaOption, flightState.monicaPayment);
+
+  // Per-passenger result boxes
+  const setResult = (id, cost) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (cost.cash > 0) {
+      el.innerHTML = `${fmt(cost.cash)}<span class="note-small">${cost.note}</span>`;
+    } else if (cost.pts > 0) {
+      el.innerHTML = `${cost.pts.toLocaleString()} ${cost.program} pts<span class="note-small">${cost.note}</span>`;
+    } else {
+      el.innerHTML = `—<span class="note-small">${cost.note}</span>`;
+    }
+  };
+  setResult('blake-flight-result',  b);
+  setResult('monica-flight-result', m);
+
+  // Flight totals row
+  const totalCash = b.cash + m.cash;
+  const totalPts  = b.pts  + m.pts;
+  const ftCash    = document.getElementById('ft-cash');
+  const ftPts     = document.getElementById('ft-pts');
+  const ftDis     = document.getElementById('ft-disabled');
+  if (ftCash) ftCash.textContent = totalCash > 0 ? fmt(totalCash) : (totalPts > 0 ? '$0 cash' : '—');
+  if (ftPts)  ftPts.textContent  = totalPts  > 0 ? `+ ${totalPts.toLocaleString()} pts total` : '';
+  if (ftDis)  ftDis.textContent  = !included ? '(not included in budget — check box to add)' : '';
+
+  // ── Points Allocation Tracker ─────────────────────────────────────────────
+  // Park Hyatt nights from current resort selections
+  const hyattNights = [1, 2].reduce((acc, slot) =>
+    acc + (sel[slot].resortId === 'park-hyatt' ? (parseInt(sel[slot].nights) || 0) : 0), 0);
+  const chaseUsedHyatt = hyattNights * pb.parkHyattPtsPerNight;
+
+  // Blake Chase UR: used for Park Hyatt + any Chase→Avios transfer for flights
+  const chaseUsedFlight = flightState.blakePayment === 'chase-transfer' ? b.pts : 0;
+  const chaseUsedTotal  = chaseUsedHyatt + chaseUsedFlight;
+  const chaseRemain     = pb.blakeChaseUR - chaseUsedTotal;
+
+  // Blake Avios: used if paying with saved avios
+  const aviosUsed  = flightState.blakePayment === 'avios' ? b.pts : 0;
+  const aviosRemain = pb.blakeAvios - aviosUsed;
+
+  // Monica Amex: used if paying with amex
+  const amexUsed   = flightState.monicaPayment === 'amex' ? m.pts : 0;
+  const amexRemain  = pb.monicaAmexMR - amexUsed;
+
+  // Helper to set element text + CSS class
+  const setEl = (id, text, over = false) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = text;
+    if (el.classList.contains('pa-remaining')) {
+      el.classList.toggle('over', over);
+    }
+  };
+
+  setEl('pa-hyatt',
+    `Park Hyatt: ${chaseUsedHyatt.toLocaleString()} pts (${hyattNights} nt${hyattNights !== 1 ? 's' : ''} × 30K)`);
+  setEl('pa-chase-flight',
+    flightState.blakePayment === 'chase-transfer'
+      ? `Flight (Chase→Avios): ${chaseUsedFlight.toLocaleString()} pts`
+      : 'Flight: 0 Chase pts (not using Chase for flight)');
+  setEl('pa-chase-remaining',
+    `Remaining: ${chaseRemain.toLocaleString()} pts`, chaseRemain < 0);
+
+  const chaseNightsLeft = Math.floor(Math.max(0, chaseRemain) / pb.parkHyattPtsPerNight);
+  setEl('pa-chase-nights',
+    chaseRemain >= 0
+      ? `= ${chaseNightsLeft} more Park Hyatt night${chaseNightsLeft !== 1 ? 's' : ''} possible`
+      : `⚠ Over by ${Math.abs(chaseRemain).toLocaleString()} pts`);
+
+  setEl('pa-avios-flight',
+    flightState.blakePayment === 'avios'
+      ? `Flight: ${aviosUsed.toLocaleString()} Avios pts`
+      : 'Flight: 0 Avios (not using Avios for flight)');
+  setEl('pa-avios-remaining',
+    `Remaining: ${aviosRemain.toLocaleString()} pts`, aviosRemain < 0);
+
+  setEl('pa-amex-flight',
+    flightState.monicaPayment === 'amex'
+      ? `Flight: ${amexUsed.toLocaleString()} Amex pts (→ Avios)`
+      : 'Flight: 0 Amex pts (paying cash)');
+  setEl('pa-amex-remaining',
+    `Remaining: ${amexRemain.toLocaleString()} pts`, amexRemain < 0);
+}
+
+// ── Event handler: any flight selector or payment method changed ──────────────
+function onFlightChange() {
+  flightState.blakeOption   = document.getElementById('blake-flight-sel')?.value;
+  flightState.monicaOption  = document.getElementById('monica-flight-sel')?.value;
+  flightState.blakePayment  = document.getElementById('blake-pay-sel')?.value;
+  flightState.monicaPayment = document.getElementById('monica-pay-sel')?.value;
+  updateFlightDisplay();
+  updateTotals();
+}
+
+// ── Override: set a price/pts override for both passengers ───────────────────
+function setFlightOverride(key, val) {
+  flightState.overrides[key] = val === '' ? null : val;
+  updateFlightDisplay();
+  updateTotals();
+}
+
+// ── Add a custom flight option ────────────────────────────────────────────────
+function addCustomFlight() {
+  const airline = document.getElementById('cf-airline')?.value?.trim();
+  const route   = document.getElementById('cf-route')?.value?.trim();
+  const cabin   = document.getElementById('cf-cabin')?.value?.trim() || 'Economy';
+  const cash    = parseFloat(document.getElementById('cf-cash')?.value) || null;
+  const pts     = parseInt(document.getElementById('cf-pts')?.value)   || null;
+
+  if (!airline && !route) return;
+
+  flightState.customFlights.push({
+    id:                 'custom-' + Date.now(),
+    airline:            airline || 'Custom',
+    route:              route   || '—',
+    cabin,
+    cashPerPerson:      cash,
+    pointsPerPersonRT:  pts,
+    pointsProgram:      pts ? 'Avios' : null,
+    note:               'Custom option'
+  });
+
+  ['cf-airline','cf-route','cf-cabin','cf-cash','cf-pts'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+
+  buildFlightSection();
+}
+
+// ── Remove a custom flight option ─────────────────────────────────────────────
+function removeCustomFlight(id) {
+  flightState.customFlights = flightState.customFlights.filter(f => f.id !== id);
+  if (flightState.blakeOption  === id) flightState.blakeOption  = null;
+  if (flightState.monicaOption === id) flightState.monicaOption = null;
+  buildFlightSection();
+  updateTotals();
+}
+
+// ── Render list of custom flights added by user ───────────────────────────────
+function renderCustomFlightList() {
+  const list = document.getElementById('custom-flight-list');
+  if (!list) return;
+  if (flightState.customFlights.length === 0) { list.innerHTML = ''; return; }
+  list.innerHTML = flightState.customFlights.map(f =>
+    `<div class="custom-flight-item">
+      <span>${f.airline} · ${f.cabin} · ${f.route}
+        ${f.cashPerPerson ? '· $' + f.cashPerPerson + '/pp' : ''}
+        ${f.pointsPerPersonRT ? '· ' + f.pointsPerPersonRT.toLocaleString() + ' pts/pp' : ''}
+      </span>
+      <button onclick="removeCustomFlight('${f.id}')" title="Remove">✕</button>
+    </div>`
+  ).join('');
+}
+
+// ── Reset all flight overrides and custom flights ─────────────────────────────
+function resetFlightOverrides() {
+  flightState.overrides     = { cashPerPerson: null, ptsPerPerson: null };
+  flightState.customFlights = [];
+  const c = document.getElementById('ov-flight-cash');
+  const p = document.getElementById('ov-flight-pts');
+  if (c) c.value = '';
+  if (p) p.value = '';
+  buildFlightSection();
+  updateTotals();
+}
+
+// ── Toggle flights override panel ─────────────────────────────────────────────
+function toggleFlightOverrides() {
+  const body = document.getElementById('flight-ov-body');
+  const icon = document.getElementById('flight-ov-toggle');
+  if (!body) return;
+  body.classList.toggle('hidden');
+  if (icon) icon.textContent = body.classList.contains('hidden') ? '▼' : '▲';
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

@@ -111,57 +111,78 @@
       "bookingMethod": "cash",
       "pointsCurrency": null,
       "location": "Fari Islands, North Malé Atoll",
-      "agentRate": 1275,
-      "websiteRate3Nights": 1615,
-      "websiteRate4Nights": 1810,
-      "taxRate": 0.202,
-      "serviceCharge": 0.10,
-      "mealPlanIncluded": "Half Board (breakfast + dinner)",
       "transfer": {
         "costTotal": 2054,
-        "description": "Speedboat from Malé area",
+        "description": "Speedboat from Malé area — waived at 4+ nights, NOT waived at 3 nights",
         "waivedAt4Nights": true,
-        "waivedAt3NightsUnconfirmed": true
+        "waivedAt3Nights": false
       },
       "nightOptions": [
         {
-          "nights": 3,
-          "room": 3825,
-          "taxes": 772,
-          "serviceCharge": 383,
-          "transfer": 2054,
-          "transferWaived": false,
-          "totalWithTransfer": 7034,
-          "totalWithoutTransfer": 4980,
-          "effectiveNightlyWithTransfer": 2345,
-          "effectiveNightlyWithoutTransfer": 1660,
-          "note": "Transfer waiver at 3 nights UNCONFIRMED — needs to be asked"
+          "nights": 4,
+          "mealPlan": "half-board-website",
+          "ratePerNight": 1810,
+          "room": 7240,
+          "taxes": 1449.88,
+          "serviceCharge": 724,
+          "transfer": 0,
+          "transferWaived": true,
+          "total": 9413.88,
+          "effectiveNightly": 2353.47,
+          "note": "Website rate HB — transfer waived at 4+ nights"
         },
         {
           "nights": 4,
-          "room": 5100,
-          "taxes": 1030,
-          "serviceCharge": 510,
+          "mealPlan": "breakfast-website",
+          "ratePerNight": 1615,
+          "room": 6460,
+          "taxes": 1304.02,
+          "serviceCharge": 646,
           "transfer": 0,
           "transferWaived": true,
-          "total": 6640,
-          "effectiveNightly": 1660,
-          "note": "Transfer WAIVED at 4 nights per deal terms"
+          "total": 8410.02,
+          "effectiveNightly": 2102.51,
+          "note": "Website rate Breakfast only — transfer waived at 4+ nights"
+        },
+        {
+          "nights": 3,
+          "mealPlan": "agent-rate",
+          "ratePerNight": 1275,
+          "room": 3825,
+          "taxes": 772,
+          "serviceCharge": 306,
+          "transfer": 2054,
+          "transferWaived": false,
+          "total": 6957,
+          "effectiveNightly": 2319,
+          "note": "Agent rate — transfer $2,054 NOT waived at 3 nights ($4,903 base + $2,054 transfer)"
         }
       ],
       "villaTypes": [
         {
           "id": "standard",
-          "name": "Standard (Agent Rate)",
-          "note": "Specific villa category not specified in agent quote"
+          "name": "Standard Villa (Agent/Website Rate)",
+          "note": "Specific villa category per agent quote"
         }
       ],
       "mealPlans": [
         {
-          "id": "half-board-included",
-          "name": "Half Board Included (Breakfast + Dinner)",
+          "id": "half-board-website",
+          "name": "Half Board — Website Rate ($1,810/nt, 4 nights)",
           "costPerNightForTwo": 0,
-          "note": "Included in all quoted agent rates"
+          "note": "HB included; 4-night stay; transfer waived → all-in $9,413.88"
+        },
+        {
+          "id": "breakfast-website",
+          "name": "Breakfast Only — Website Rate ($1,615/nt, 4 nights)",
+          "costPerNightForTwo": 0,
+          "note": "Breakfast included; 4-night stay; transfer waived → all-in $8,410.02"
+        },
+        {
+          "id": "agent-rate",
+          "name": "Agent Rate HB ($1,275/nt, 3 nights)",
+          "costPerNightForTwo": 0,
+          "note": "Agent negotiated rate; 3 nights; $2,054 transfer NOT waived → all-in $6,957"
         }
       ],
       "honeymooonInclusions": [
@@ -169,14 +190,14 @@
       ],
       "notes": [
         "Do NOT transfer Chase/Amex points here — poor value",
-        "Use agent rate ($1,275/night), NOT website rate",
-        "4 nights is meaningfully better than 3 nights because transfer waiver saves $2,054",
-        "At agent rate, 4 nights all-in ($6,640) is actually cheaper than 3 nights with transfer ($7,034)",
-        "Transfer waiver at 3 nights: UNCONFIRMED — needs to be asked"
+        "Transfer is WAIVED at 4+ nights, NOT waived at 3 nights — confirmed policy",
+        "Website HB rate: $1,810/nt × 4 nights → all-in $9,413.88 (transfer waived)",
+        "Website Breakfast rate: $1,615/nt × 4 nights → all-in $8,410.02 (transfer waived)",
+        "Agent rate: $1,275/nt × 3 nights → $4,903 + $2,054 transfer = $6,957 all-in"
       ],
       "defaultNights": 4,
       "defaultVilla": "standard",
-      "defaultMealPlan": "half-board-included"
+      "defaultMealPlan": "half-board-website"
     },
     {
       "id": "conrad",
@@ -419,6 +440,86 @@
       "defaultNights": 4,
       "defaultVilla": "standard",
       "defaultMealPlan": "half-board"
+    },
+    {
+      "id": "patina",
+      "name": "Patina Maldives, Fari Islands",
+      "loyaltyProgram": "None (independent resort)",
+      "bookingMethod": "cash",
+      "pointsCurrency": null,
+      "location": "Fari Islands, North Malé Atoll",
+      "taxServiceRate": 0.287,
+      "greenTaxPerPersonPerNight": 12,
+      "agentDiscountPerNight": 50,
+      "agentDiscountNote": "Agent rate is $50/night less than the direct rate",
+      "transfer": {
+        "costTotal": 0,
+        "description": "Complimentary shared luxury speedboat transfer included in rate"
+      },
+      "nightOptions": [
+        {
+          "nights": 4,
+          "villa": "water-pool-villa",
+          "mealPlan": "half-board",
+          "ratePerNight": 1585,
+          "agentRatePerNight": 1535,
+          "room": 6340,
+          "taxService": 1819.58,
+          "greenTax": 96,
+          "transfer": 0,
+          "total": 8255.58,
+          "effectiveNightly": 2063.90,
+          "note": "Half board and shared speedboat transfer included"
+        },
+        {
+          "nights": 4,
+          "villa": "sunset-water-pool-villa",
+          "mealPlan": "half-board",
+          "ratePerNight": 1685,
+          "agentRatePerNight": 1635,
+          "room": 6740,
+          "taxService": 1934.38,
+          "greenTax": 96,
+          "transfer": 0,
+          "total": 8770.38,
+          "effectiveNightly": 2192.60,
+          "note": "Half board and shared speedboat transfer included"
+        }
+      ],
+      "villaTypes": [
+        {
+          "id": "water-pool-villa",
+          "name": "One Bedroom Water Pool Villa",
+          "note": "$1,585/night direct · Agent rate: $1,535/night ($50 less)"
+        },
+        {
+          "id": "sunset-water-pool-villa",
+          "name": "One Bedroom Sunset Water Pool Villa",
+          "note": "$1,685/night direct · Agent rate: $1,635/night ($50 less)"
+        }
+      ],
+      "mealPlans": [
+        {
+          "id": "half-board",
+          "name": "Half Board (Breakfast + Dinner) — Included",
+          "costPerNightForTwo": 0,
+          "note": "Complimentary half board included in all rates"
+        }
+      ],
+      "honeymooonInclusions": [
+        "Honeymoon inclusions to be confirmed with resort"
+      ],
+      "notes": [
+        "Agent rate is $50/night less than direct rate shown above",
+        "Complimentary shared luxury speedboat transfer included in all rates",
+        "Tax & Service Charge: 28.7% of room rate",
+        "Green Tax: $12/person/night = $96 total for 2 guests × 4 nights",
+        "Water Pool Villa: direct $8,255.58 all-in · agent rate saves ~$200",
+        "Sunset Water Pool Villa: direct $8,770.38 all-in · agent rate saves ~$200"
+      ],
+      "defaultNights": 4,
+      "defaultVilla": "water-pool-villa",
+      "defaultMealPlan": "half-board"
     }
   ],
   "suggestedCombinations": [
@@ -442,15 +543,15 @@
     },
     {
       "label": "Combo 4",
-      "description": "Park Hyatt (5 nts, Overwater Sunset, Breakfast) + Ritz (4 nts, HB, transfer waived)",
+      "description": "Park Hyatt (5 nts, Overwater Sunset, Breakfast) + Ritz (4 nts, HB website rate)",
       "resort1": { "id": "park-hyatt", "nights": 5, "villa": "overwater-sunset-villa", "mealPlan": "breakfast" },
-      "resort2": { "id": "ritz-carlton", "nights": 4, "villa": "standard", "mealPlan": "half-board-included" }
+      "resort2": { "id": "ritz-carlton", "nights": 4, "villa": "standard", "mealPlan": "half-board-website" }
     },
     {
       "label": "Combo 5",
-      "description": "Park Hyatt (5 nts, Overwater Sunset, Breakfast) + Ritz (3 nts, HB)",
+      "description": "Park Hyatt (5 nts, Overwater Sunset, Breakfast) + Ritz (3 nts, agent rate)",
       "resort1": { "id": "park-hyatt", "nights": 5, "villa": "overwater-sunset-villa", "mealPlan": "breakfast" },
-      "resort2": { "id": "ritz-carlton", "nights": 3, "villa": "standard", "mealPlan": "half-board-included" }
+      "resort2": { "id": "ritz-carlton", "nights": 3, "villa": "standard", "mealPlan": "agent-rate" }
     },
     {
       "label": "Combo 6",
@@ -470,5 +571,70 @@
       "resort1": { "id": "westin", "nights": 5, "villa": "standard", "mealPlan": "breakfast" },
       "resort2": { "id": "park-hyatt", "nights": 5, "villa": "overwater-sunset-villa", "mealPlan": "breakfast" }
     }
-  ]
+  ],
+  "flightData": {
+    "tripDates": "June 7–19, 2026",
+    "route": "Dallas (DFW) → Malé (MLE)",
+    "passengers": ["Blake", "Monica"],
+    "pointsBalance": {
+      "blakeChaseUR": 180555,
+      "blakeAvios": 168000,
+      "blakeTransferNote": "140,000 Chase UR transferred to Avios at 20% bonus = 168,000 Avios (locked in)",
+      "monicaAmexMR": 300000,
+      "parkHyattPtsPerNight": 30000,
+      "parkHyattPtsCurrency": "Chase UR"
+    },
+    "options": [
+      {
+        "id": "qatar-economy-standard",
+        "airline": "Qatar Airways",
+        "route": "DFW → Doha → Malé",
+        "stops": 1,
+        "stopCities": "Doha (DOH)",
+        "cabin": "Economy",
+        "cashPerPerson": 2400,
+        "pointsPerPersonRT": 170000,
+        "pointsProgram": "Avios",
+        "note": "Standard economy award rate"
+      },
+      {
+        "id": "qatar-economy-saver",
+        "airline": "Qatar Airways",
+        "route": "DFW → Doha → Malé",
+        "stops": 1,
+        "stopCities": "Doha (DOH)",
+        "cabin": "Economy (Saver)",
+        "cashPerPerson": 2400,
+        "pointsPerPersonRT": 127500,
+        "pointsProgram": "Avios",
+        "note": "Saver rate — must depart Malé at 10:00am on June 19"
+      },
+      {
+        "id": "qatar-business",
+        "airline": "Qatar Airways",
+        "route": "DFW → Doha → Malé",
+        "stops": 1,
+        "stopCities": "Doha (DOH)",
+        "cabin": "Business",
+        "cashPerPerson": null,
+        "pointsPerPersonRT": 340000,
+        "pointsProgram": "Avios",
+        "note": "Business class — points only (approximate)"
+      },
+      {
+        "id": "etihad-economy",
+        "airline": "Etihad Airways",
+        "route": "DFW → ATL → Abu Dhabi → Malé",
+        "stops": 2,
+        "stopCities": "Atlanta (ATL) + Abu Dhabi (AUH)",
+        "cabin": "Economy",
+        "cashPerPersonMin": 1700,
+        "cashPerPersonMax": 2200,
+        "cashPerPerson": 1950,
+        "pointsPerPersonRT": null,
+        "pointsProgram": null,
+        "note": "Cash only · price range $1,700–$2,200/person"
+      }
+    ]
+  }
 }
